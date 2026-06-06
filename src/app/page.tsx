@@ -145,12 +145,12 @@ export default function Home() {
           </motion.div>
           
           <motion.div 
-            className="flex-1 w-full relative"
+            className="flex-1 w-full relative animate-float"
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full bg-gray-50">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] w-full bg-gray-50">
               <Image 
                 alt="Student studying" 
                 className="object-cover" 
