@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -8,7 +9,64 @@ import TwoToneHeading from '@/components/TwoToneHeading';
 import AnimatedCard from '@/components/AnimatedCard';
 import Counter from '@/components/Counter';
 
+interface Testimonial {
+  id: number;
+  name: string;
+  program: string;
+  university: string;
+  quote: string;
+  rating: number;
+  photo: string;
+}
+
+const FALLBACK_TESTIMONIALS: Testimonial[] = [
+  {
+    id: 1,
+    name: 'Ram Bahadur',
+    program: 'Language Program',
+    university: 'YAMASA Institute',
+    quote: 'YMS Education helped me achieve my dream of studying in Japan. Their language classes are top-notch and the visa processing was so smooth.',
+    rating: 5,
+    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&h=200&fit=crop'
+  },
+  {
+    id: 2,
+    name: 'Sita Thapa',
+    program: 'Undergraduate',
+    university: 'Tokyo University',
+    quote: 'The counselors at YMS are very honest and supportive. They guided me through every step of the process and prepared me for embassy interviews.',
+    rating: 5,
+    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&h=200&fit=crop'
+  },
+  {
+    id: 3,
+    name: 'Sulav Shrestha',
+    program: 'Vocational Program',
+    university: 'Kawahara E-Business College',
+    quote: 'I highly recommend YMS Education to anyone who wants to study in Japan. Their post-arrival support is exceptionally helpful for finding part-time jobs.',
+    rating: 5,
+    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&h=200&fit=crop'
+  }
+];
+
 export default function Home() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    async function fetchTestimonials() {
+      try {
+        const res = await fetch('/api/testimonials?published=1');
+        if (res.ok) {
+          const data = await res.json();
+          setTestimonials(data.testimonials || []);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    }
+    fetchTestimonials();
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* --- Section 1: Hero --- */}
@@ -146,14 +204,25 @@ export default function Home() {
           <p className="text-[12px] font-bold text-[#1B2A6B] uppercase tracking-[0.15em] mb-8 font-[family-name:var(--font-dm-sans)]">
             In Partnership With
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 max-w-5xl">
             <div className="relative w-32 h-16 mix-blend-multiply hover:scale-105 transition-transform duration-300">
               <Image src="/images/partners/yamasa-logo.png" alt="YAMASA" fill className="object-contain" />
             </div>
             <div className="relative w-32 h-16 mix-blend-multiply hover:scale-105 transition-transform duration-300">
               <Image src="/images/partners/egao-logo.png" alt="EGAO" fill className="object-contain" />
             </div>
-            <span className="font-[family-name:var(--font-dm-sans)] font-black text-4xl md:text-5xl text-[#cfd6df] tracking-tight hover:text-[#1B2A6B] transition-colors cursor-default">SULAV</span>
+            <span className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-[#cfd6df] tracking-tight hover:text-[#1B2A6B] transition-colors cursor-default select-none text-center max-w-[180px] leading-tight">
+              NEPAL MANPOWER
+            </span>
+            <span className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-[#cfd6df] tracking-tight hover:text-[#1B2A6B] transition-colors cursor-default select-none text-center max-w-[240px] leading-tight">
+              REMNANT JAPANESE LANGUAGE SCHOOL
+            </span>
+            <span className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-[#cfd6df] tracking-tight hover:text-[#1B2A6B] transition-colors cursor-default select-none text-center max-w-[240px] leading-tight">
+              KAWAHARA E-BUSINESS COLLEGE
+            </span>
+            <span className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-[#cfd6df] tracking-tight hover:text-[#1B2A6B] transition-colors cursor-default select-none text-center max-w-[220px] leading-tight">
+              AICHI INT&apos;L ACADEMY
+            </span>
           </div>
         </div>
       </motion.section>
@@ -609,6 +678,110 @@ export default function Home() {
           <Link href="/services" className="inline-block px-10 py-4 bg-white border-2 border-[#1B2A6B] text-[#1B2A6B] rounded-full font-bold shadow-sm hover:bg-[#1B2A6B] hover:text-white transition-colors">
             VIEW ALL SERVICES
           </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* --- Section 9: Success Stories & Testimonials --- */}
+      <SectionWrapper id="testimonials" bgColor="bg-[#f0f4f8]" className="relative z-10 py-24">
+        <div className="max-w-[1280px] mx-auto text-center mb-16">
+          <TwoToneHeading firstText="Success Stories" secondText="& Testimonials" className="text-4xl md:text-5xl mb-4" />
+          <p className="text-[#5d3f3d] max-w-2xl mx-auto text-lg font-nunito-sans">
+            Hear from our students who successfully transformed their dreams of studying in Japan into reality.
+          </p>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+          {(testimonials.length > 0 ? testimonials.slice(0, 3) : FALLBACK_TESTIMONIALS).map((t, index) => (
+            <AnimatedCard 
+              key={t.id || index} 
+              delay={index * 0.1} 
+              className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 relative flex flex-col h-full border border-gray-100"
+              borderColor={index % 3 === 0 ? "border-[#E8192C]" : index % 3 === 1 ? "border-[#1B2A6B]" : "border-[#0097A7]"}
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(t.rating || 5)].map((_, i) => (
+                  <span key={i} className="material-symbols-outlined text-yellow-400 text-sm fill">star</span>
+                ))}
+              </div>
+
+              <blockquote className="text-base text-[#5d3f3d] font-nunito-sans leading-relaxed italic mb-8 flex-grow">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md flex-shrink-0 bg-gray-100">
+                  {t.photo ? (
+                    <Image 
+                      src={t.photo} 
+                      alt={t.name} 
+                      fill 
+                      className="object-cover" 
+                    />
+                  ) : (
+                    <span className="material-symbols-outlined text-gray-400 absolute inset-0 flex items-center justify-center">person</span>
+                  )}
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-[#1B2A6B] font-nunito text-base leading-tight">{t.name}</h4>
+                  <p className="text-xs text-[#0097A7] font-bold font-noto-sans uppercase tracking-wider mt-0.5">
+                    {t.university || t.program}
+                  </p>
+                </div>
+              </div>
+            </AnimatedCard>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/testimonials" className="inline-block px-8 py-3.5 bg-transparent border-2 border-[#1B2A6B] text-[#1B2A6B] font-bold rounded-full hover:bg-[#1B2A6B] hover:text-white transition-colors shadow-md">
+            VIEW ALL SUCCESS STORIES
+          </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* --- Section 10: Photo Gallery --- */}
+      <SectionWrapper id="gallery" bgColor="bg-white" className="relative z-10 py-24">
+        <div className="max-w-[1280px] mx-auto text-center mb-16">
+          <TwoToneHeading firstText="Photo" secondText="Gallery" className="text-4xl md:text-5xl mb-4" />
+          <p className="text-[#5d3f3d] max-w-2xl mx-auto text-lg font-nunito-sans">
+            A glimpse into the vibrant student life, classroom sessions, and cultural events at YMS and in Japan.
+          </p>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+          {[
+            { title: "Vibrant Campus Life", subtitle: "Building friendships & futures", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&h=450&fit=crop" },
+            { title: "Gateway to Japan", subtitle: "Explore modern cities & traditions", img: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&h=450&fit=crop" },
+            { title: "Interactive Classes", subtitle: "Mastering Japanese with experts", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600&h=450&fit=crop" },
+            { title: "Cultural Heritage", subtitle: "Immerse in Japan's rich history", img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&h=450&fit=crop" },
+            { title: "Collaborative Study", subtitle: "Peer support & mock interviews", img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=600&h=450&fit=crop" },
+            { title: "Success & Support", subtitle: "Guidance every step of the way", img: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&h=450&fit=crop" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-md group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              whileHover={{ y: -6 }}
+            >
+              <Image 
+                src={item.img} 
+                alt={item.title} 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B2A6B]/90 via-[#1B2A6B]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <h4 className="text-white font-nunito font-black text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                  {item.title}
+                </h4>
+                <p className="text-gray-200 text-sm font-medium font-nunito-sans mt-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                  {item.subtitle}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
     </div>

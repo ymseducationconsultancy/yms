@@ -44,8 +44,8 @@ export default function Footer() {
               <Image 
                 src="/images/yms-logo-transparent.png" 
                 alt="YMS Education Logo" 
-                width={160} 
-                height={50} 
+                width={200} 
+                height={60} 
                 className="object-contain" 
               />
             </div>

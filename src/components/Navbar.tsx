@@ -36,7 +36,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src="/images/yms-logo-transparent.png" alt="YMS Education Logo" width={180} height={50} className="object-contain mix-blend-multiply" priority />
+          <Image src="/images/yms-logo-transparent.png" alt="YMS Education Logo" width={230} height={60} className="object-contain mix-blend-multiply" priority />
         </Link>
 
         {/* Desktop Nav */}

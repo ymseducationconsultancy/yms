@@ -242,6 +242,7 @@ export default function AboutUs() {
         <div className="max-w-[1280px] mx-auto flex flex-wrap justify-center gap-x-8 gap-y-12">
           {[
             { name: "Bikram Khadka", role: "CEO", img: "/images/team/founder.jpeg" },
+            { name: "Dik Bahadur Budhathoki", role: "Director / Japan Coordinator", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&h=400&fit=crop" },
             { name: "Dal Bahadur Karki", role: "Director", img: "/images/team/dal-bahadur-karki.jpeg" },
             { name: "Nabin Bohara", role: "Teacher", img: "/images/team/nabin_bohora.jpeg" },
             { name: "Sujata Raut", role: "Teacher", img: "/images/team/sujata-raut.jpeg" },
@@ -281,7 +282,7 @@ export default function AboutUs() {
       <section className="py-16 border-t border-gray-200 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 text-center">
           <p className="text-sm font-bold text-[#1B2A6B] uppercase tracking-widest mb-8">In Partnership With</p>
-          <div className="flex flex-wrap justify-center items-center gap-16 md:gap-24">
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 max-w-5xl mx-auto">
             <motion.div 
               className="relative w-32 h-16 mix-blend-multiply hover:scale-105 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
@@ -300,15 +301,42 @@ export default function AboutUs() {
             >
               <Image src="/images/partners/egao-logo.png" alt="EGAO" fill className="object-contain" />
             </motion.div>
-            <motion.div 
-              className="text-4xl md:text-5xl font-black text-gray-300 hover:text-[#1B2A6B] transition-colors cursor-pointer"
+            <motion.span 
+              className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-gray-300 hover:text-[#1B2A6B] transition-colors cursor-pointer select-none text-center max-w-[180px] leading-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              SULAV
-            </motion.div>
+              NEPAL MANPOWER
+            </motion.span>
+            <motion.span 
+              className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-gray-300 hover:text-[#1B2A6B] transition-colors cursor-pointer select-none text-center max-w-[240px] leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              REMNANT JAPANESE LANGUAGE SCHOOL
+            </motion.span>
+            <motion.span 
+              className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-gray-300 hover:text-[#1B2A6B] transition-colors cursor-pointer select-none text-center max-w-[240px] leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              KAWAHARA E-BUSINESS COLLEGE
+            </motion.span>
+            <motion.span 
+              className="font-[family-name:var(--font-dm-sans)] font-black text-xl md:text-2xl text-gray-300 hover:text-[#1B2A6B] transition-colors cursor-pointer select-none text-center max-w-[220px] leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+            >
+              AICHI INT&apos;L ACADEMY
+            </motion.span>
           </div>
         </div>
       </section>
