@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionWrapper from '@/components/SectionWrapper';
 import TwoToneHeading from '@/components/TwoToneHeading';
 import AnimatedCard from '@/components/AnimatedCard';
@@ -51,6 +51,25 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
 
 export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [currentHeroIdx, setCurrentHeroIdx] = useState(0);
+
+  const heroImages = [
+    '/images/hero/1.jpg',
+    '/images/hero/2.jpg',
+    '/images/hero/3.jpg',
+    '/images/hero/4.jpg',
+    '/images/hero/5.jpg',
+    '/images/hero/6.jpg',
+    '/images/hero/7.jpg',
+    '/images/hero/8.jpg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroIdx((prev) => (prev + 1) % heroImages.length);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
 
   useEffect(() => {
     async function fetchTestimonials() {
@@ -145,20 +164,31 @@ export default function Home() {
           </motion.div>
           
           <motion.div 
-            className="flex-1 w-full relative"
+            className="flex-1 w-full relative animate-float"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-[0px_4px_40px_rgba(26,35,64,0.1)] border border-[#e2e2e4] aspect-[4/3] w-full">
-              <Image 
-                alt="Student studying" 
-                className="object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQ2quo4UJhEmKrFfTSctjqGKekQQbHKOanNZCwxIR7aXcbpypfvAFOtTvWypH86_n7_IQMA_fTKMaQFrEFx-I7mRwSGlQwVPH_8w8inYIUqt-TAq4Btll_wD32kzuWockGpQNlPZyF9wrcEr7Y3r6qLG_FBL7RjL7_p8JMF0C0oW_4sK_lkji4Kim5gcL6hxYImmi71slT0dq9kNNQsfyus0GV6msxPaVCf0iWiGOeYh-iqjnTEabRdpLs_FOv_VNS60AAyxXgzM"
-                fill
-                priority={true}
-                fetchPriority="high"
-              />
+            <div className="relative rounded-2xl overflow-hidden shadow-[0px_4px_40px_rgba(26,35,64,0.1)] border border-[#e2e2e4] aspect-[720/790] w-full bg-gray-50">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={currentHeroIdx}
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    alt="Student studying" 
+                    className="object-cover" 
+                    src={heroImages[currentHeroIdx]}
+                    fill
+                    priority={true}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>
