@@ -1,13 +1,30 @@
 import Database from 'better-sqlite3';
 import bcrypt from 'bcryptjs';
 import path from 'path';
+import fs from 'fs';
 
 let db: Database.Database | null = null;
 
 export function getDb() {
   if (db) return db;
 
-  const dbPath = path.join(process.cwd(), 'yms-education.db');
+  const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1';
+  let dbPath = path.join(process.cwd(), 'yms-education.db');
+
+  if (isProd) {
+    const tmpDbPath = path.join('/tmp', 'yms-education.db');
+    if (!fs.existsSync(tmpDbPath)) {
+      try {
+        if (fs.existsSync(dbPath)) {
+          fs.copyFileSync(dbPath, tmpDbPath);
+        }
+      } catch (e) {
+        console.error('Failed to copy db to /tmp', e);
+      }
+    }
+    dbPath = tmpDbPath;
+  }
+
   db = new Database(dbPath);
 
   // Enable WAL mode for better performance
