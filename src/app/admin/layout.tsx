@@ -12,7 +12,7 @@ export default function AdminLayout({
   const router = useRouter();
   const pathname = usePathname();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     // Only check auth if not on login page
@@ -73,10 +73,10 @@ export default function AdminLayout({
   return (
     <div className="fixed inset-0 z-[200] bg-[#f6fafe] flex overflow-hidden">
       {/* Sidebar Overlay (Mobile) */}
-      {!isSidebarOpen && (
+      {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={() => setIsSidebarOpen(true)}
+          onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}
 
