@@ -18,7 +18,7 @@ export default function Counter({
 }) {
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => 
-    isFloat ? latest.toFixed(1) : Math.round(latest)
+    isFloat ? latest.toFixed(1) : Math.round(latest).toString()
   );
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
