@@ -150,17 +150,17 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
           >
-            <div className="relative p-[2px] rounded-2xl bg-gradient-to-tr from-[#E8192C] via-[#1B2A6B] to-[#0097A7] shadow-[0px_4px_40px_rgba(26,35,64,0.1)] aspect-[4/3] w-full">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-50">
-                <Image 
-                  alt="Student studying" 
-                  className="object-cover" 
-                  src="/images/hero-image.png"
-                  fill
-                  priority={true}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-[0px_4px_40px_rgba(26,35,64,0.1)] aspect-[4/3] w-full bg-gray-50">
+              <Image 
+                alt="Student studying" 
+                className="object-cover" 
+                src="/images/hero-image.png"
+                fill
+                priority={true}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              {/* Soft bottom fade-out gradient to blend image into the white page background */}
+              <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none"></div>
             </div>
           </motion.div>
         </div>
