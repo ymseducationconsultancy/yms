@@ -68,6 +68,7 @@ export default function AdminLayout({
     { name: 'Dashboard', path: '/admin/dashboard', icon: 'dashboard' },
     { name: 'Manage Blogs', path: '/admin/blogs', icon: 'article' },
     { name: 'Manage Testimonials', path: '/admin/testimonials', icon: 'forum' },
+    { name: 'Manage Gallery', path: '/admin/gallery', icon: 'collections' },
   ];
 
   return (

@@ -64,6 +64,16 @@ export function getDb() {
       password_hash TEXT NOT NULL,
       created_at TEXT DEFAULT (datetime('now'))
     );
+
+    CREATE TABLE IF NOT EXISTS gallery (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      category TEXT NOT NULL,
+      img TEXT NOT NULL,
+      desc TEXT,
+      published INTEGER DEFAULT 1,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
   `);
 
   // Check if admin exists
@@ -123,6 +133,26 @@ export function getDb() {
       'The counselors at YMS are very honest and supportive. They guided me through every step of the process.',
       5
     );
+  }
+
+  // Check if we need to seed gallery
+  const galleryExist = db.prepare('SELECT count(*) as count FROM gallery').get() as { count: number };
+  if (galleryExist.count === 0) {
+    const insertGallery = db.prepare(`
+      INSERT INTO gallery (title, category, img, desc, published)
+      VALUES (?, ?, ?, ?, 1)
+    `);
+
+    insertGallery.run("Language Program Certification", "Campus Life", "/images/gallery/certification-1.jpg", "Students receiving their Japanese language course completion certificates.");
+    insertGallery.run("JLPT Certificate Distribution", "Campus Life", "/images/gallery/certification-2.jpg", "Celebrating student successes in the JLPT exam achievements.");
+    insertGallery.run("Interactive Study Sessions", "Classrooms", "/images/gallery/college-1.jpg", "A look inside our modern Japanese language classrooms.");
+    insertGallery.run("Japanese Culture & Orientation Seminars", "Cultural Events", "/images/gallery/event-1.jpg", "Students participating in cultural exchange orientations.");
+    insertGallery.run("Annual Cultural Festivities", "Cultural Events", "/images/gallery/event-2.jpg", "Celebrating traditional Japanese cultural events and festivals.");
+    insertGallery.run("Pre-departure Orientation Program", "Cultural Events", "/images/gallery/event-3.jpg", "Preparing students for their upcoming academic journey in Japan.");
+    insertGallery.run("Language Classes & Presentations", "Classrooms", "/images/gallery/event-4.jpg", "Interactive presentation sessions to build confidence in speaking Japanese.");
+    insertGallery.run("Community & Interaction Program", "Cultural Events", "/images/gallery/event-5.jpg", "Student engagement and group discussions during cultural sessions.");
+    insertGallery.run("Visa Success Stories Celebrations", "Campus Life", "/images/gallery/success-1.jpg", "YMS students celebrating high visa success rates for Japan.");
+    insertGallery.run("Alumni Gathering and Send-offs", "Campus Life", "/images/gallery/success-2.jpg", "Wishing our next batch of students success in their future career paths.");
   }
 
   return db;

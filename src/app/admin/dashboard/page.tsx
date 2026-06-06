@@ -8,7 +8,9 @@ export default function AdminDashboard() {
     totalBlogs: 0,
     publishedBlogs: 0,
     totalTestimonials: 0,
-    publishedTestimonials: 0
+    publishedTestimonials: 0,
+    totalGallery: 0,
+    publishedGallery: 0
   });
 
   const [loading, setLoading] = useState(true);
@@ -19,23 +21,28 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [blogsRes, testimonialsRes] = await Promise.all([
+      const [blogsRes, testimonialsRes, galleryRes] = await Promise.all([
         fetch('/api/blogs'),
-        fetch('/api/testimonials')
+        fetch('/api/testimonials'),
+        fetch('/api/gallery')
       ]);
 
-      if (blogsRes.ok && testimonialsRes.ok) {
+      if (blogsRes.ok && testimonialsRes.ok && galleryRes.ok) {
         const blogsData = await blogsRes.json();
         const testimonialsData = await testimonialsRes.json();
+        const galleryData = await galleryRes.json();
 
         const blogs = blogsData.blogs || [];
         const testimonials = testimonialsData.testimonials || [];
+        const gallery = galleryData.gallery || [];
 
         setStats({
           totalBlogs: blogs.length,
           publishedBlogs: blogs.filter((b: any) => b.published === 1).length,
           totalTestimonials: testimonials.length,
-          publishedTestimonials: testimonials.filter((t: any) => t.published === 1).length
+          publishedTestimonials: testimonials.filter((t: any) => t.published === 1).length,
+          totalGallery: gallery.length,
+          publishedGallery: gallery.filter((g: any) => g.published === 1).length
         });
       }
     } catch (error) {
@@ -64,12 +71,14 @@ export default function AdminDashboard() {
           <span className="material-symbols-outlined animate-spin text-4xl text-[#E8192C]">progress_activity</span>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-10">
           {[
             { label: 'Total Blogs', value: stats.totalBlogs, icon: 'article', color: 'bg-blue-50 text-blue-600', border: 'border-blue-600' },
             { label: 'Published Blogs', value: stats.publishedBlogs, icon: 'public', color: 'bg-green-50 text-green-600', border: 'border-green-600' },
             { label: 'Total Testimonials', value: stats.totalTestimonials, icon: 'forum', color: 'bg-purple-50 text-purple-600', border: 'border-purple-600' },
             { label: 'Published Testimonials', value: stats.publishedTestimonials, icon: 'verified', color: 'bg-teal-50 text-teal-600', border: 'border-teal-600' },
+            { label: 'Total Images', value: stats.totalGallery, icon: 'collections', color: 'bg-rose-50 text-rose-600', border: 'border-rose-600' },
+            { label: 'Published Images', value: stats.publishedGallery, icon: 'photo_library', color: 'bg-amber-50 text-amber-600', border: 'border-amber-600' },
           ].map((stat, index) => (
             <div key={index} className={`bg-white p-6 rounded-2xl shadow-sm border-t-4 ${stat.border}`}>
               <div className="flex justify-between items-start mb-4">
@@ -92,7 +101,7 @@ export default function AdminDashboard() {
             </h2>
           </div>
           <div className="p-6">
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-3 gap-4">
               <Link href="/admin/blogs" className="p-6 rounded-xl border-2 border-dashed border-gray-200 hover:border-[#1B2A6B] hover:bg-gray-50 flex flex-col items-center justify-center text-center gap-2 transition-colors">
                 <span className="material-symbols-outlined text-3xl text-gray-400">edit_document</span>
                 <span className="font-bold text-[#1B2A6B]">Manage Blogs</span>
@@ -100,6 +109,10 @@ export default function AdminDashboard() {
               <Link href="/admin/testimonials" className="p-6 rounded-xl border-2 border-dashed border-gray-200 hover:border-[#1B2A6B] hover:bg-gray-50 flex flex-col items-center justify-center text-center gap-2 transition-colors">
                 <span className="material-symbols-outlined text-3xl text-gray-400">rate_review</span>
                 <span className="font-bold text-[#1B2A6B]">Manage Testimonials</span>
+              </Link>
+              <Link href="/admin/gallery" className="p-6 rounded-xl border-2 border-dashed border-gray-200 hover:border-[#1B2A6B] hover:bg-gray-50 flex flex-col items-center justify-center text-center gap-2 transition-colors">
+                <span className="material-symbols-outlined text-3xl text-gray-400">collections</span>
+                <span className="font-bold text-[#1B2A6B]">Manage Gallery</span>
               </Link>
             </div>
           </div>

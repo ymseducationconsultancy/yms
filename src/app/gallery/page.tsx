@@ -14,102 +14,109 @@ interface GalleryItem {
   desc: string;
 }
 
-const GALLERY_ITEMS: GalleryItem[] = [
+const FALLBACK_ITEMS: GalleryItem[] = [
   {
     id: 1,
-    title: "Student Collaboration",
+    title: "Language Program Certification",
     category: "Campus Life",
-    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&h=450&fit=crop",
-    desc: "Students working together in groups during language class orientations."
+    img: "/images/gallery/certification-1.jpg",
+    desc: "Students receiving their Japanese language course completion certificates."
   },
   {
     id: 2,
-    title: "Tokyo Skyline at Night",
-    category: "Japan",
-    img: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&h=450&fit=crop",
-    desc: "A breathtaking view of Shinjuku, Tokyo - a top destination for YMS students."
+    title: "JLPT Certificate Distribution",
+    category: "Campus Life",
+    img: "/images/gallery/certification-2.jpg",
+    desc: "Celebrating student successes in the JLPT exam achievements."
   },
   {
     id: 3,
-    title: "Language Class Lectures",
+    title: "Interactive Study Sessions",
     category: "Classrooms",
-    img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600&h=450&fit=crop",
-    desc: "Interactive learning environment designed to master Japanese from N5 to N1."
+    img: "/images/gallery/college-1.jpg",
+    desc: "A look inside our modern Japanese language classrooms."
   },
   {
     id: 4,
-    title: "Kyoto Heritage Pagoda",
-    category: "Japan",
-    img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&h=450&fit=crop",
-    desc: "Experiencing the rich cultural history and traditions of Kyoto."
+    title: "Japanese Culture & Orientation Seminars",
+    category: "Cultural Events",
+    img: "/images/gallery/event-1.jpg",
+    desc: "Students participating in cultural exchange orientations."
   },
   {
     id: 5,
-    title: "Alumni Meeting",
-    category: "Campus Life",
-    img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=600&h=450&fit=crop",
-    desc: "Successful graduates sharing their experiences in Japan with new students."
+    title: "Annual Cultural Festivities",
+    category: "Cultural Events",
+    img: "/images/gallery/event-2.jpg",
+    desc: "Celebrating traditional Japanese cultural events and festivals."
   },
   {
     id: 6,
-    title: "Interactive Classroom Activity",
-    category: "Classrooms",
-    img: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&h=450&fit=crop",
-    desc: "Personalized guidance and classroom discussions with our language experts."
+    title: "Pre-departure Orientation Program",
+    category: "Cultural Events",
+    img: "/images/gallery/event-3.jpg",
+    desc: "Preparing students for their upcoming academic journey in Japan."
   },
   {
     id: 7,
-    title: "Dotonbori Neon, Osaka",
-    category: "Japan",
-    img: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600&h=450&fit=crop",
-    desc: "The vibrant neon lights of Osaka's famous food and commercial district."
+    title: "Language Classes & Presentations",
+    category: "Classrooms",
+    img: "/images/gallery/event-4.jpg",
+    desc: "Interactive presentation sessions to build confidence in speaking Japanese."
   },
   {
     id: 8,
-    title: "Traditional Festival Orientation",
+    title: "Community & Interaction Program",
     category: "Cultural Events",
-    img: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600&h=450&fit=crop",
-    desc: "Students participating in traditional Japanese tea ceremonies and culture briefings."
+    img: "/images/gallery/event-5.jpg",
+    desc: "Student engagement and group discussions during cultural sessions."
   },
   {
     id: 9,
-    title: "Graduation and Certificates",
+    title: "Visa Success Stories Celebrations",
     category: "Campus Life",
-    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&h=450&fit=crop",
-    desc: "Celebrating academic milestones and certificate achievements at YMS."
+    img: "/images/gallery/success-1.jpg",
+    desc: "YMS students celebrating high visa success rates for Japan."
   },
   {
     id: 10,
-    title: "Modern Language Lab",
-    category: "Classrooms",
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&h=450&fit=crop",
-    desc: "State-of-the-art computers and audio setups for listening and speaking practice."
-  },
-  {
-    id: 11,
-    title: "Cherry Blossoms in Spring",
-    category: "Japan",
-    img: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=600&h=450&fit=crop",
-    desc: "Beautiful Sakura blooming season across Japan's parks and streets."
-  },
-  {
-    id: 12,
-    title: "Tea Ceremony Demonstrations",
-    category: "Cultural Events",
-    img: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=600&h=450&fit=crop",
-    desc: "Special cultural orientation events introducing Japanese arts to new students."
+    title: "Alumni Gathering and Send-offs",
+    category: "Campus Life",
+    img: "/images/gallery/success-2.jpg",
+    desc: "Wishing our next batch of students success in their future career paths."
   }
 ];
 
 export default function Gallery() {
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   const categories = ['All', 'Campus Life', 'Classrooms', 'Japan', 'Cultural Events'];
 
+  useEffect(() => {
+    async function fetchGallery() {
+      try {
+        const res = await fetch('/api/gallery?published=1');
+        if (res.ok) {
+          const data = await res.json();
+          setItems(data.gallery || []);
+        }
+      } catch (error) {
+        console.error('Error fetching gallery:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchGallery();
+  }, []);
+
+  const galleryList = items.length > 0 ? items : FALLBACK_ITEMS;
+
   const filteredItems = activeCategory === 'All' 
-    ? GALLERY_ITEMS 
-    : GALLERY_ITEMS.filter(item => item.category === activeCategory);
+    ? galleryList 
+    : galleryList.filter(item => item.category === activeCategory);
 
   const handlePrev = () => {
     if (selectedIdx === null) return;
