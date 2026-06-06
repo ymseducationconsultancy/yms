@@ -160,11 +160,11 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               
-              {/* Fading borders (top, bottom, left, right) to blend image smoothly into page background */}
-              <div className="absolute top-0 inset-x-0 h-[10%] bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
-              <div className="absolute bottom-0 inset-x-0 h-[15%] bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
-              <div className="absolute left-0 inset-y-0 w-[10%] bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
-              <div className="absolute right-0 inset-y-0 w-[10%] bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
+              {/* Fading borders (top, bottom, left, right) in YMS theme colors */}
+              <div className="absolute top-0 inset-x-0 h-[10%] bg-gradient-to-b from-[#0097A7]/45 to-transparent pointer-events-none z-10"></div>
+              <div className="absolute bottom-0 inset-x-0 h-[15%] bg-gradient-to-t from-[#E8192C]/45 to-transparent pointer-events-none z-10"></div>
+              <div className="absolute left-0 inset-y-0 w-[10%] bg-gradient-to-r from-[#1B2A6B]/30 to-transparent pointer-events-none z-10"></div>
+              <div className="absolute right-0 inset-y-0 w-[10%] bg-gradient-to-l from-[#0097A7]/30 to-transparent pointer-events-none z-10"></div>
             </div>
 
             {/* Floating Glassmorphism Badge */}
