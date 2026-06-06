@@ -83,6 +83,7 @@ export default function Footer() {
               <li><Link href="/services" className="text-white/80 hover:text-white transition-colors hover:underline">Career Services</Link></li>
               <li><Link href="/services" className="text-white/80 hover:text-white transition-colors hover:underline">Visa Information</Link></li>
               <li><Link href="/testimonials" className="text-white/80 hover:text-white transition-colors hover:underline">Success Stories</Link></li>
+              <li><Link href="/gallery" className="text-white/80 hover:text-white transition-colors hover:underline">Photo Gallery</Link></li>
               <li><Link href="#" className="text-white/80 hover:text-white transition-colors hover:underline">Privacy Policy</Link></li>
             </ul>
           </motion.div>

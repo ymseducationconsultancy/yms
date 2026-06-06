@@ -752,7 +752,7 @@ export default function Home() {
 
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
           {[
-            { title: "Vibrant Campus Life", subtitle: "Building friendships & futures", img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&h=450&fit=crop" },
+            { title: "Vibrant Campus Life", subtitle: "Building friendships & futures", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&h=450&fit=crop" },
             { title: "Gateway to Japan", subtitle: "Explore modern cities & traditions", img: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&h=450&fit=crop" },
             { title: "Interactive Classes", subtitle: "Mastering Japanese with experts", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600&h=450&fit=crop" },
             { title: "Cultural Heritage", subtitle: "Immerse in Japan's rich history", img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&h=450&fit=crop" },
@@ -784,6 +784,12 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/gallery" className="inline-block px-8 py-3.5 bg-transparent border-2 border-[#1B2A6B] text-[#1B2A6B] font-bold rounded-full hover:bg-[#1B2A6B] hover:text-white transition-colors shadow-md">
+            VIEW FULL GALLERY
+          </Link>
         </div>
       </SectionWrapper>
     </div>
