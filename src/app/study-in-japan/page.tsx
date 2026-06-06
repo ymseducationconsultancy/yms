@@ -14,9 +14,9 @@ export default function StudyInJapan() {
       <section className="relative min-h-[40vh] flex items-center pt-32 pb-10 overflow-hidden z-10">
         <div className="max-w-[1280px] mx-auto px-4 md:px-12 lg:px-24 grid lg:grid-cols-2 gap-12 items-center w-full relative z-10">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
           >
             <h1 className="font-nunito font-black text-5xl md:text-6xl text-[#1B2A6B] mb-6 leading-tight">
               Study in <span className="text-[#E8192C]">Japan</span>
@@ -25,7 +25,7 @@ export default function StudyInJapan() {
               Unlock world-class education, immerse yourself in a unique culture, and build a global career in one of the safest and most advanced countries in the world.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="px-8 py-4 bg-[#E8192C] text-white rounded-full font-bold shadow-lg hover:bg-[#1B2A6B] transition-colors">
+              <Link href="/contact" className="px-8 py-4 bg-[#E8192C] text-[#ffffff] rounded-full font-bold shadow-lg hover:bg-[#1B2A6B] transition-colors">
                 Apply Now
               </Link>
               <button className="px-8 py-4 bg-white border-2 border-[#1B2A6B] text-[#1B2A6B] rounded-full font-bold hover:bg-[#1B2A6B] hover:text-white transition-colors">
@@ -36,16 +36,17 @@ export default function StudyInJapan() {
 
           <motion.div
             className="relative h-[400px] lg:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
           >
             <Image 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBN9RsZp5dWbVyhfA0404o4AxWl2I2zu7IiP9mwpOU3XpOKDSNxLARW7cQXg9q1iKkMqleaTn1bmHQc7kWj6ZrPQinrOkXQZwCg-g0dJ_Sj48KaM0r_h7H4H_1fOMcke79TojFOdwCFQj89wLz9aKrrS38Ywlqy5PCi--7Jqs1SnK-e36SQCTunqXURbVOOCgRQ8Ue-j1sAHTO4Z6hEYq-_TRWCTRPQNMU3oEujksLCCQj6LzGjyk2WciYau_8op1Lj-WVxu5W7k9I"
               alt="Study in Japan"
               fill
               className="object-cover"
-              priority
+              priority={true}
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#1B2A6B]/50 to-transparent"></div>
           </motion.div>

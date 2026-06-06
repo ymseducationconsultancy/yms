@@ -53,10 +53,10 @@ export default function Footer() {
               Empowering Dreams, Enriching Futures. Honest counseling, language preparation, and comprehensive visa support for your journey to Japan.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E8192C] transition-colors">
+              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E8192C] transition-colors">
                 <span className="material-symbols-outlined">thumb_up</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E8192C] transition-colors">
+              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E8192C] transition-colors">
                 <span className="material-symbols-outlined">play_arrow</span>
               </a>
             </div>

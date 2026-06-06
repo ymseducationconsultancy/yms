@@ -89,14 +89,14 @@ export default function FloatingActions() {
 
         if (isExternal) {
           return (
-            <a key={action.label} href={action.href} target="_blank" rel="noopener noreferrer" className="block outline-none">
+            <a key={action.label} href={action.href} target="_blank" rel="noopener noreferrer" aria-label={action.label} className="block outline-none">
               <ButtonContent />
             </a>
           );
         }
 
         return (
-          <Link key={action.label} href={action.href} className="block outline-none">
+          <Link key={action.label} href={action.href} aria-label={action.label} className="block outline-none">
             <ButtonContent />
           </Link>
         );

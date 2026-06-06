@@ -77,7 +77,8 @@ export default function Home() {
             className="w-full h-full object-cover opacity-10" 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBROzSXZeRSiuG6qtX9NsTXMQvnBsWup7j5-vhWH9Y0S4WUt3kfJuLVdTOgLUVK4oBsZu49y5ns0B-znIzRwUZzflbFqvj5f2xnNIOMqCxyqxLTTHDK4Hp1hFpxZ-AX4xnZEGNlkrStydH2skrVNO-6Zzcv3M_YmyEv7ad3hatrsHzKMZEeGfeDnU-Dxi7QqDwM40HU43ABZN64XnuACuqI4AqLdBT4PCsDYjGO5bb7Zk90uXN--Kr-Huk10f6vqe2A7rAQOir1_Ss"
             fill
-            priority
+            priority={true}
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
         </div>
@@ -85,15 +86,15 @@ export default function Home() {
         <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-12">
           <motion.div 
             className="flex-1 text-left space-y-6"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
           >
             <motion.div 
               className="inline-flex items-center space-x-2 bg-[#E8192C]/10 px-4 py-2 rounded-full border border-[#E8192C]/20"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.2 }}
             >
               <span className="material-symbols-outlined text-[#E8192C]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
               <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#1B2A6B] uppercase">Nepal&apos;s Trusted Japan Education Consultancy</span>
@@ -101,9 +102,9 @@ export default function Home() {
             
             <motion.h1 
               className="font-[family-name:var(--font-playfair)] text-[40px] md:text-[56px] leading-[1.2] md:leading-[1.1] font-bold tracking-[-0.02em] text-[#1B2A6B]"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
             >
               Empowering Dreams,<br/>
               <span className="text-[#E8192C]">Enriching Futures</span>
@@ -113,16 +114,16 @@ export default function Home() {
               className="font-[family-name:var(--font-dm-sans)] text-[18px] leading-[1.6] text-[#475569] max-w-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.25 }}
             >
               Your dedicated partner in navigating the journey to study and work in Japan. We provide expert guidance, transparent processes, and unwavering support to turn your academic aspirations into reality.
             </motion.p>
             
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 pt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25 }}
             >
               <Link href="/contact" className="bg-[#E8192C] text-[#ffffff] px-[32px] py-[16px] rounded shadow-md hover:shadow-lg hover:bg-[#1B2A6B] transition-all duration-300 font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-center">
                 Book Free Counseling
@@ -136,7 +137,7 @@ export default function Home() {
               className="pt-4 flex items-center gap-4 text-[#475569]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.25 }}
             >
               <span className="material-symbols-outlined text-[#E8192C] text-3xl">verified_user</span>
               <span className="font-[family-name:var(--font-dm-sans)] text-[16px] leading-[1.6] font-semibold">99.8% Visa Success Rate</span>
@@ -145,17 +146,18 @@ export default function Home() {
           
           <motion.div 
             className="flex-1 w-full relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-[0px_4px_40px_rgba(26,35,64,0.1)] border border-[#e2e2e4] aspect-[4/3] w-full">
               <Image 
                 alt="Student studying" 
                 className="object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqR2quo4UJhEmKrFfTSctjqGKekQQbHKOanNZCwxIR7aXcbpypfvAFOtTvWypH86_n7_IQMA_fTKMaQFrEFx-I7mRwSGlQwVPH_8w8inYIUqt-TAq4Btll_wD32kzuWockGpQNlPZyF9wrcEr7Y3r6qLG_FBL7RjL7_p8JMF0C0oW_4sK_lkji4Kim5gcL6hxYImmi71slT0dq9kNNQsfyus0GV6msxPaVCf0iWiGOeYh-iqjnTEabRdpLs_FOv_VNS60AAyxXgzM"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQ2quo4UJhEmKrFfTSctjqGKekQQbHKOanNZCwxIR7aXcbpypfvAFOtTvWypH86_n7_IQMA_fTKMaQFrEFx-I7mRwSGlQwVPH_8w8inYIUqt-TAq4Btll_wD32kzuWockGpQNlPZyF9wrcEr7Y3r6qLG_FBL7RjL7_p8JMF0C0oW_4sK_lkji4Kim5gcL6hxYImmi71slT0dq9kNNQsfyus0GV6msxPaVCf0iWiGOeYh-iqjnTEabRdpLs_FOv_VNS60AAyxXgzM"
                 fill
-                priority
+                priority={true}
+                fetchPriority="high"
               />
             </div>
           </motion.div>

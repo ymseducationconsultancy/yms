@@ -78,6 +78,7 @@ export default function Navbar() {
         <button
           className="lg:hidden text-[#1B2A6B] p-2"
           onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
         >
           <span className="material-symbols-outlined text-3xl">menu</span>
         </button>
@@ -105,6 +106,7 @@ export default function Navbar() {
                 <button
                   className="text-[#1B2A6B] p-2 hover:bg-gray-100 rounded-full"
                   onClick={() => setIsOpen(false)}
+                  aria-label="Close menu"
                 >
                   <span className="material-symbols-outlined text-2xl">close</span>
                 </button>
