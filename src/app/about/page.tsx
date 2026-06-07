@@ -246,7 +246,7 @@ export default function AboutUs() {
             { name: "Dal Bahadur Karki", role: "Director", img: "/images/team/dal-bahadur-karki.jpeg" },
             { name: "Nabin Bohara", role: "Teacher", img: "/images/team/nabin_bohora.jpeg" },
             { name: "Sujata Raut", role: "Teacher", img: "/images/team/sujata-raut.jpeg" },
-            { name: "Priya Bhattarai", role: "Documentation", img: "/images/team/priya-bhattarai-v2.jpeg" },
+            { name: "Priya Bhattarai", role: "Documentation Officer", img: "/images/team/priya-bhattarai-v2.jpeg" },
             { name: "Akrima Thapa", role: "Counselor", img: "/images/team/akrima-thapa.jpeg" },
             { name: "Rikesh Kumar Thapa", role: "Counselor", img: "/images/team/rikesh-kumar-thapa.jpeg" },
             { name: "Sujana Raut", role: "Front Desk", img: "/images/team/sujana-raut.jpeg" },
