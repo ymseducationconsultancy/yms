@@ -41,66 +41,73 @@ export default function Testimonials() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center pt-32 pb-10 z-10">
-        <div className="relative z-10 text-center px-4 md:px-12 max-w-4xl mx-auto">
+      {/* Combined Hero & Stats Section */}
+      <section className="relative min-h-[40vh] flex items-center justify-center pt-32 pb-16 z-10 w-full overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-12 w-full grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Column: Hero Text */}
+          <div className="relative z-10 text-left">
+            <motion.div 
+              className="inline-block mb-4 px-6 py-2 rounded-full bg-[#E8192C]/10 border border-[#E8192C]/20 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="font-noto-sans text-sm text-[#E8192C] font-bold tracking-widest uppercase">Inspiration Gallery</span>
+            </motion.div>
+            
+            <motion.h1 
+              className="font-nunito text-[48px] md:text-[56px] leading-[1.1] mb-6 font-black tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <span className="text-[#E8192C] relative inline-block">Student
+                <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#E8192C]/30" preserveAspectRatio="none" viewBox="0 0 100 10">
+                  <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="4"></path>
+                </svg>
+              </span>
+              <span className="text-[#1B2A6B] ml-3 block sm:inline">Success Stories</span>
+            </motion.h1>
+            
+            <motion.p 
+              className="font-nunito-sans text-lg text-[#334155] leading-relaxed max-w-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Real experiences from students who have realized their dreams of studying in Japan through YMS Education. Your journey to the Land of the Rising Sun starts with these authentic narratives.
+            </motion.p>
+          </div>
+
+          {/* Right Column: Stats Block */}
           <motion.div 
-            className="inline-block mb-4 px-4 py-1.5 rounded-full bg-[#E8192C]/10 border border-[#E8192C]/20 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            className="relative rounded-[3rem] overflow-hidden p-10 md:p-14 shadow-premium"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <span className="font-noto-sans text-sm text-[#E8192C] font-bold tracking-widest uppercase">Inspiration Gallery</span>
+            <div className="absolute inset-0 stats-gradient opacity-95"></div>
+            <div className="absolute inset-0 dot-pattern opacity-20"></div>
+            
+            <div className="relative z-10 flex flex-col sm:flex-row justify-center items-center gap-12 md:gap-16 text-white text-center">
+              <div className="flex flex-col items-center group">
+                <span className="font-nunito text-5xl md:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">500+</span>
+                <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Dreams Fulfilled</span>
+              </div>
+              <div className="hidden sm:block w-px h-24 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+              <div className="flex flex-col items-center group text-center max-w-[150px]">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="material-symbols-outlined text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300">verified</span>
+                  <span className="font-nunito text-3xl md:text-4xl font-black drop-shadow-lg">Approved</span>
+                </div>
+                <span className="font-noto-sans text-xs uppercase tracking-[0.1em] text-white/80 font-bold leading-relaxed">By The Ministry of Social Development</span>
+              </div>
+            </div>
           </motion.div>
           
-          <motion.h1 
-            className="font-nunito text-[56px] leading-[1.1] mb-8 font-black tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <span className="text-[#E8192C] relative inline-block">Student
-              <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#E8192C]/30" preserveAspectRatio="none" viewBox="0 0 100 10">
-                <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="4"></path>
-              </svg>
-            </span>
-            <span className="text-[#1B2A6B] ml-4">Success Stories</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="font-nunito-sans text-lg text-[#334155] max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Real experiences from students who have realized their dreams of studying in Japan through YMS Education. Your journey to the Land of the Rising Sun starts with these authentic narratives.
-          </motion.p>
         </div>
-      </section>
-
-      {/* Stats Strip */}
-      <section className="relative py-16 w-full my-12 overflow-hidden">
-        <div className="absolute inset-0 stats-gradient opacity-95"></div>
-        <div className="absolute inset-0 dot-pattern opacity-20"></div>
-        <motion.div 
-          className="max-w-[1280px] mx-auto px-4 md:px-12 relative z-10 flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 text-white text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="flex flex-col items-center group">
-            <span className="font-nunito text-5xl md:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">500+</span>
-            <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Dreams Fulfilled</span>
-          </div>
-          <div className="flex flex-col items-center group text-center max-w-xs">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="material-symbols-outlined text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300">verified</span>
-              <span className="font-nunito text-3xl md:text-4xl font-black drop-shadow-lg">Approved</span>
-            </div>
-            <span className="font-noto-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white/80 font-bold leading-relaxed">By The Ministry of Social Development</span>
-          </div>
-        </motion.div>
       </section>
 
       {/* Featured Testimonial */}
