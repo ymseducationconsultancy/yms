@@ -90,21 +90,16 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex flex-col items-center group">
-            <span className="font-nunito text-5xl md:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">99.8%</span>
-            <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Visa Success Rate</span>
-          </div>
-          <div className="hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
-          <div className="flex flex-col items-center group">
             <span className="font-nunito text-5xl md:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">500+</span>
             <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Dreams Fulfilled</span>
           </div>
           <div className="hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
-          <div className="flex flex-col items-center group">
+          <div className="flex flex-col items-center group text-center max-w-xs">
             <div className="flex items-center gap-2 mb-2">
               <span className="material-symbols-outlined text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300">verified</span>
-              <span className="font-nunito text-4xl md:text-5xl font-black drop-shadow-lg">Govt.</span>
+              <span className="font-nunito text-3xl md:text-4xl font-black drop-shadow-lg">Approved</span>
             </div>
-            <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Approved Partner</span>
+            <span className="font-noto-sans text-xs md:text-sm uppercase tracking-[0.1em] text-white/80 font-bold leading-relaxed">By The Ministry of Social Development</span>
           </div>
         </motion.div>
       </section>
