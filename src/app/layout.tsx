@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   keywords: [
     "study in japan",
     "japanese language",
-    "education consultancy",
+    "overseas education",
     "nepal",
     "visa support",
     "JLPT",

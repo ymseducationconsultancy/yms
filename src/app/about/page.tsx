@@ -77,7 +77,7 @@ export default function AboutUs() {
             <TwoToneHeading firstText="About" secondText="YMS Education" className="text-4xl md:text-5xl mb-6" />
             <div className="space-y-6 text-[#334155] text-lg">
               <p>
-                Established with a vision to connect Nepalese students with world-class education in Japan, YMS Education Foundation has been a pioneer in educational consultancy and language preparation.
+                Established with a vision to connect Nepalese students with world-class education in Japan, YMS Education Foundation has been a pioneer in educational guidance and language preparation.
               </p>
               <p>
                 Our journey began with a simple belief: every student deserves honest guidance. Today, we pride ourselves on our 99.8% visa success rate and our comprehensive post-arrival support that ensures our students don't just reach Japan, but thrive there.
@@ -114,7 +114,7 @@ export default function AboutUs() {
                   <div className="inline-block px-4 py-1.5 rounded-full bg-[#1B2A6B]/10 text-[#1B2A6B] font-bold text-sm mb-3">The Beginning</div>
                   <h3 className="text-2xl font-black font-nunito text-[#1B2A6B] mb-3">A Singular Focus</h3>
                   <p className="text-[#334155] font-noto-sans leading-relaxed">
-                    YMS Education Consultancy was founded with a singular focus: bridging the gap between ambitious students in Nepal and the vast educational opportunities in Japan.
+                    YMS Education was founded with a singular focus: bridging the gap between ambitious students in Nepal and the vast educational opportunities in Japan.
                   </p>
                 </div>
                 <div className="absolute left-[27px] md:left-1/2 w-[54px] h-[54px] rounded-full bg-white border-[6px] border-[#1B2A6B] shadow-xl -translate-x-1/2 z-10 flex items-center justify-center">
@@ -206,7 +206,7 @@ export default function AboutUs() {
             </div>
             <h3 className="text-2xl font-black font-nunito text-[#1B2A6B] mb-4">Our Vision</h3>
             <p className="text-[#334155]">
-              To be the most trusted and preferred educational consultancy in Nepal, fostering global citizens who bridge the cultural and economic ties between Nepal and Japan.
+              To be the most trusted and preferred educational institution in Nepal, fostering global citizens who bridge the cultural and economic ties between Nepal and Japan.
             </p>
           </AnimatedCard>
 

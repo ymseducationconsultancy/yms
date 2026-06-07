@@ -149,7 +149,7 @@ export default function Home() {
               transition={{ duration: 0.2 }}
             >
               <span className="material-symbols-outlined text-[#E8192C]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#1B2A6B] uppercase">Nepal&apos;s Trusted Japan Education Consultancy</span>
+              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#1B2A6B] uppercase">Nepal&apos;s Trusted Japan Education Partner</span>
             </motion.div>
             
             <motion.h1 
@@ -382,7 +382,7 @@ export default function Home() {
               <ul className="space-y-2 text-[#171c1f]">
                 <li className="flex items-start gap-2">
                   <span className="material-symbols-outlined text-[#1B2A6B] text-[20px] mt-0.5">check</span>
-                  To be the most trusted education consultancy in Nepal.
+                  To be the most trusted education partner in Nepal.
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="material-symbols-outlined text-[#1B2A6B] text-[20px] mt-0.5">check</span>
