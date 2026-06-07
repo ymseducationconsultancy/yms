@@ -83,7 +83,7 @@ export default function Testimonials() {
         <div className="absolute inset-0 stats-gradient opacity-95"></div>
         <div className="absolute inset-0 dot-pattern opacity-20"></div>
         <motion.div 
-          className="max-w-[1280px] mx-auto px-4 md:px-12 relative z-10 flex flex-col md:flex-row justify-around items-center gap-12 text-white text-center"
+          className="max-w-[1280px] mx-auto px-4 md:px-12 relative z-10 flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 text-white text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -93,7 +93,6 @@ export default function Testimonials() {
             <span className="font-nunito text-5xl md:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">500+</span>
             <span className="font-noto-sans text-sm uppercase tracking-[0.2em] text-white/80 font-bold">Dreams Fulfilled</span>
           </div>
-          <div className="hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
           <div className="flex flex-col items-center group text-center max-w-xs">
             <div className="flex items-center gap-2 mb-2">
               <span className="material-symbols-outlined text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300">verified</span>
