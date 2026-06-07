@@ -38,10 +38,10 @@ const FALLBACK_ITEMS: GalleryItem[] = [
   },
   {
     id: 4,
-    title: "Japanese Culture & Orientation Seminars",
-    category: "Events",
+    title: "Friendly Football Match",
+    category: "Sports",
     img: "/images/gallery/event-1.jpg",
-    desc: "Students participating in cultural exchange orientations."
+    desc: "Students participating in a friendly football match between YMS and KG."
   },
   {
     id: 5,

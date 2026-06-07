@@ -146,7 +146,7 @@ export function getDb() {
     insertGallery.run("Language Program Certification", "Success", "/images/gallery/certification-1.jpg", "Students receiving their Japanese language course completion certificates.");
     insertGallery.run("JLPT Certificate Distribution", "Success", "/images/gallery/certification-2.jpg", "Celebrating student successes in the JLPT exam achievements.");
     insertGallery.run("Interactive Study Sessions", "Events", "/images/gallery/college-1.jpg", "A look inside our modern Japanese language classrooms.");
-    insertGallery.run("Japanese Culture & Orientation Seminars", "Events", "/images/gallery/event-1.jpg", "Students participating in cultural exchange orientations.");
+    insertGallery.run("Friendly Football Match", "Sports", "/images/gallery/event-1.jpg", "Students participating in a friendly football match between YMS and KG.");
     insertGallery.run("Annual Cultural Festivities", "Events", "/images/gallery/event-2.jpg", "Celebrating traditional Japanese cultural events and festivals.");
     insertGallery.run("Pre-departure Orientation Program", "Events", "/images/gallery/event-3.jpg", "Preparing students for their upcoming academic journey in Japan.");
     insertGallery.run("Language Classes & Presentations", "Events", "/images/gallery/event-4.jpg", "Interactive presentation sessions to build confidence in speaking Japanese.");
