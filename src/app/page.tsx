@@ -185,15 +185,6 @@ export default function Home() {
               </Link>
             </motion.div>
             
-            <motion.div 
-              className="pt-4 flex items-center gap-4 text-[#475569]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.25 }}
-            >
-              <span className="material-symbols-outlined text-[#E8192C] text-3xl">verified_user</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[16px] leading-[1.6] font-semibold">99.8% Visa Success Rate</span>
-            </motion.div>
           </motion.div>
           
           <motion.div 
@@ -237,11 +228,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-[80px]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-2">
-              <span className="font-[family-name:var(--font-playfair)] text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={99.8} isFloat={true} />%</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Visa Success</span>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="flex flex-col items-center space-y-2">
               <span className="font-[family-name:var(--font-playfair)] text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={100} />+</span>
               <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Students</span>
@@ -721,7 +708,7 @@ export default function Home() {
             },
             {
               title: "Visa Processing",
-              desc: "Meticulous documentation review and application processing for a 99.8% success rate.",
+              desc: "Meticulous documentation review and application processing.",
               icon: "description",
               color: "text-[#0097A7]",
               bg: "bg-[#97f0ff]/50",
