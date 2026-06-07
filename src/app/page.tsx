@@ -219,62 +219,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- Stats Bar --- */}
+      {/* --- Stats & Partners Combined --- */}
       <motion.section 
-        className="bg-white py-12 relative z-10"
+        className="bg-white py-16 relative z-10 overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-[80px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-2">
-              <span className="font-[family-name:var(--font-playfair)] text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={100} />+</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Students</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column: Stats */}
+            <div className="grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div className="flex flex-col items-center lg:items-start space-y-2">
+                <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={100} />+</span>
+                <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Students</span>
+              </div>
+              <div className="flex flex-col items-center lg:items-start space-y-2 border-l border-gray-200 pl-4 lg:pl-6">
+                <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={5} />+</span>
+                <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Partner Schools</span>
+              </div>
+              <div className="flex flex-col items-center lg:items-start space-y-2 border-l border-gray-200 pl-4 lg:pl-6">
+                <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={2} />+</span>
+                <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Yrs Experience</span>
+              </div>
             </div>
-            <div className="flex flex-col items-center space-y-2">
-              <span className="font-[family-name:var(--font-playfair)] text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={5} />+</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Partner Schools</span>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <span className="font-[family-name:var(--font-playfair)] text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={2} />+</span>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Yrs Experience</span>
-            </div>
-          </div>
-        </div>
-      </motion.section>
 
-      {/* --- Partners Strip --- */}
-      <motion.section
-        className="relative bg-white py-12"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-[1280px] mx-auto px-5 md:px-[80px] flex flex-col items-center">
-          <p className="text-[12px] font-bold text-[#1B2A6B] uppercase tracking-[0.15em] mb-8 font-[family-name:var(--font-dm-sans)]">
-            In Partnership With
-          </p>
-          <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-6 md:gap-8 lg:gap-10 max-w-6xl w-full">
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/yamasa-logo.png" alt="YAMASA" width={110} height={55} className="object-contain mix-blend-multiply" />
-            </div>
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/egao-logo.png" alt="EGAO" width={110} height={55} className="object-contain mix-blend-multiply" />
-            </div>
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/nepal-manpower-logo.png" alt="NEPAL MANPOWER" width={110} height={55} className="object-contain" />
-            </div>
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/remnant-logo.png" alt="REMNANT JAPANESE LANGUAGE SCHOOL" width={120} height={55} className="object-contain" />
-            </div>
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/kawahara-logo.png" alt="KAWAHARA E-BUSINESS COLLEGE" width={125} height={55} className="object-contain" />
-            </div>
-            <div className="hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <Image src="/images/partners/aichi-logo.png" alt="AICHI INT'L ACADEMY" width={110} height={55} className="object-contain" />
+            {/* Right Column: Partners Marquee */}
+            <div className="relative w-full overflow-hidden flex flex-col pt-8 lg:pt-0 border-t lg:border-t-0 border-gray-100 lg:border-l lg:pl-12 lg:border-gray-200">
+              <p className="text-[12px] font-bold text-[#1B2A6B] uppercase tracking-[0.15em] mb-6 font-[family-name:var(--font-dm-sans)] text-center lg:text-left">
+                In Partnership With
+              </p>
+              
+              <div className="relative flex overflow-hidden w-full group mask-image-fade">
+                <div className="flex w-max animate-marquee space-x-12 px-6 items-center">
+                  {/* First set of partners */}
+                  <Image src="/images/partners/yamasa-logo.png" alt="YAMASA" width={110} height={55} className="object-contain mix-blend-multiply flex-shrink-0" />
+                  <Image src="/images/partners/egao-logo.png" alt="EGAO" width={110} height={55} className="object-contain mix-blend-multiply flex-shrink-0" />
+                  <Image src="/images/partners/nepal-manpower-logo.png" alt="NEPAL MANPOWER" width={110} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/remnant-logo.png" alt="REMNANT JAPANESE LANGUAGE SCHOOL" width={120} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/kawahara-logo.png" alt="KAWAHARA E-BUSINESS COLLEGE" width={125} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/aichi-logo.png" alt="AICHI INT'L ACADEMY" width={110} height={55} className="object-contain flex-shrink-0" />
+                  
+                  {/* Second set of partners for seamless loop */}
+                  <Image src="/images/partners/yamasa-logo.png" alt="YAMASA" width={110} height={55} className="object-contain mix-blend-multiply flex-shrink-0" />
+                  <Image src="/images/partners/egao-logo.png" alt="EGAO" width={110} height={55} className="object-contain mix-blend-multiply flex-shrink-0" />
+                  <Image src="/images/partners/nepal-manpower-logo.png" alt="NEPAL MANPOWER" width={110} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/remnant-logo.png" alt="REMNANT JAPANESE LANGUAGE SCHOOL" width={120} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/kawahara-logo.png" alt="KAWAHARA E-BUSINESS COLLEGE" width={125} height={55} className="object-contain flex-shrink-0" />
+                  <Image src="/images/partners/aichi-logo.png" alt="AICHI INT'L ACADEMY" width={110} height={55} className="object-contain flex-shrink-0" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
