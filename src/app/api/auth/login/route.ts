@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { createToken } from '@/lib/auth';
 import { cookies } from 'next/headers';
 
@@ -13,13 +13,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Username and password are required' }, { status: 400 });
     }
 
-    const db = getDb();
-    const admin = db.prepare('SELECT * FROM admins WHERE username = ?').get(username) as any;
-
-    if (!admin) {
+    const rows = await sql`SELECT * FROM admins WHERE username = ${username}`;
+    
+    if (rows.length === 0) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 
+    const admin = rows[0];
     const isValid = await bcrypt.compare(password, admin.password_hash);
 
     if (!isValid) {

@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 
 export async function GET(
@@ -9,14 +9,13 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const db = getDb();
-    const testimonial = db.prepare('SELECT * FROM testimonials WHERE id = ?').get(id);
+    const rows = await sql`SELECT * FROM testimonials WHERE id = ${id}`;
     
-    if (!testimonial) {
+    if (rows.length === 0) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 });
     }
     
-    return NextResponse.json(testimonial);
+    return NextResponse.json(rows[0]);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -36,28 +35,25 @@ export async function PUT(
     const body = await request.json();
     const { name, program, university, quote, rating, photo, published } = body;
 
-    const db = getDb();
-    
-    const update = db.prepare(`
+    const progStr = program || '';
+    const uniStr = university || '';
+    const rNum = rating || 5;
+    const photoStr = photo || '';
+    const pubInt = published ? 1 : 0;
+
+    const rows = await sql`
       UPDATE testimonials 
-      SET name = ?, program = ?, university = ?, quote = ?, rating = ?, 
-          photo = ?, published = ?
-      WHERE id = ?
-    `);
+      SET name = ${name}, program = ${progStr}, university = ${uniStr}, quote = ${quote}, rating = ${rNum}, 
+          photo = ${photoStr}, published = ${pubInt}
+      WHERE id = ${id}
+      RETURNING *
+    `;
 
-    update.run(
-      name,
-      program || '',
-      university || '',
-      quote,
-      rating || 5,
-      photo || '',
-      published ? 1 : 0,
-      id
-    );
+    if (rows.length === 0) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    }
 
-    const updatedTestimonial = db.prepare('SELECT * FROM testimonials WHERE id = ?').get(id);
-    return NextResponse.json(updatedTestimonial);
+    return NextResponse.json(rows[0]);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -74,9 +70,7 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const db = getDb();
-    
-    db.prepare('DELETE FROM testimonials WHERE id = ?').run(id);
+    await sql`DELETE FROM testimonials WHERE id = ${id}`;
     
     return NextResponse.json({ success: true });
   } catch (error) {

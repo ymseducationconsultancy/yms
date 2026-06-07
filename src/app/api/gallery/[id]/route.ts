@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 
 export async function GET(
@@ -9,14 +9,13 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const db = getDb();
-    const item = db.prepare('SELECT * FROM gallery WHERE id = ?').get(id);
+    const rows = await sql`SELECT * FROM gallery WHERE id = ${id}`;
     
-    if (!item) {
+    if (rows.length === 0) {
       return NextResponse.json({ error: 'Gallery item not found' }, { status: 404 });
     }
     
-    return NextResponse.json(item);
+    return NextResponse.json(rows[0]);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -39,26 +38,22 @@ export async function PUT(
     if (!title || !category || !img) {
       return NextResponse.json({ error: 'Title, category, and image URL are required' }, { status: 400 });
     }
-
-    const db = getDb();
     
-    const update = db.prepare(`
+    const pubInt = published ? 1 : 0;
+    const descText = desc || '';
+
+    const rows = await sql`
       UPDATE gallery 
-      SET title = ?, category = ?, img = ?, desc = ?, published = ?
-      WHERE id = ?
-    `);
+      SET title = ${title}, category = ${category}, img = ${img}, "desc" = ${descText}, published = ${pubInt}
+      WHERE id = ${id}
+      RETURNING *
+    `;
 
-    update.run(
-      title,
-      category,
-      img,
-      desc || '',
-      published ? 1 : 0,
-      id
-    );
+    if (rows.length === 0) {
+       return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    }
 
-    const updatedItem = db.prepare('SELECT * FROM gallery WHERE id = ?').get(id);
-    return NextResponse.json(updatedItem);
+    return NextResponse.json(rows[0]);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -75,9 +70,7 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const db = getDb();
-    
-    db.prepare('DELETE FROM gallery WHERE id = ?').run(id);
+    await sql`DELETE FROM gallery WHERE id = ${id}`;
     
     return NextResponse.json({ success: true });
   } catch (error) {

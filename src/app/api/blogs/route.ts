@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import slugify from 'slugify';
 
@@ -10,23 +10,24 @@ export async function GET(request: NextRequest) {
     const published = searchParams.get('published');
     const category = searchParams.get('category');
     
-    const db = getDb();
-    let query = 'SELECT * FROM blogs WHERE 1=1';
-    const params: any[] = [];
+    let blogs;
+    const pubInt = published ? parseInt(published) : null;
+    const hasCategory = category && category !== 'All';
 
-    if (published) {
-      query += ' AND published = ?';
-      params.push(parseInt(published));
+    if (published && hasCategory) {
+      const rows = await sql`SELECT * FROM blogs WHERE published = ${pubInt} AND category = ${category} ORDER BY created_at DESC`;
+      blogs = rows;
+    } else if (published) {
+      const rows = await sql`SELECT * FROM blogs WHERE published = ${pubInt} ORDER BY created_at DESC`;
+      blogs = rows;
+    } else if (hasCategory) {
+      const rows = await sql`SELECT * FROM blogs WHERE category = ${category} ORDER BY created_at DESC`;
+      blogs = rows;
+    } else {
+      const rows = await sql`SELECT * FROM blogs ORDER BY created_at DESC`;
+      blogs = rows;
     }
 
-    if (category && category !== 'All') {
-      query += ' AND category = ?';
-      params.push(category);
-    }
-
-    query += ' ORDER BY created_at DESC';
-
-    const blogs = db.prepare(query).all(...params);
     return NextResponse.json({ blogs });
   } catch (error) {
     console.error('Fetch blogs error:', error);
@@ -50,31 +51,24 @@ export async function POST(request: NextRequest) {
 
     let slug = slugify(title, { lower: true, strict: true });
     
-    const db = getDb();
-    
     // Check if slug exists
-    const existing = db.prepare('SELECT id FROM blogs WHERE slug = ?').get(slug);
-    if (existing) {
+    const existing = await sql`SELECT id FROM blogs WHERE slug = ${slug}`;
+    if (existing.length > 0) {
       slug = `${slug}-${Date.now()}`;
     }
 
-    const insert = db.prepare(`
+    const excStr = excerpt || '';
+    const catStr = category || 'General';
+    const thumbStr = thumbnail || '';
+    const pubInt = published ? 1 : 0;
+
+    const rows = await sql`
       INSERT INTO blogs (title, slug, excerpt, content, category, thumbnail, published)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `);
+      VALUES (${title}, ${slug}, ${excStr}, ${content}, ${catStr}, ${thumbStr}, ${pubInt})
+      RETURNING *
+    `;
 
-    const result = insert.run(
-      title,
-      slug,
-      excerpt || '',
-      content,
-      category || 'General',
-      thumbnail || '',
-      published ? 1 : 0
-    );
-
-    const newBlog = db.prepare('SELECT * FROM blogs WHERE id = ?').get(result.lastInsertRowid);
-    return NextResponse.json(newBlog, { status: 201 });
+    return NextResponse.json(rows[0], { status: 201 });
   } catch (error) {
     console.error('Create blog error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

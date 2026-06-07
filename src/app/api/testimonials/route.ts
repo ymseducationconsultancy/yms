@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
@@ -8,18 +8,17 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const published = searchParams.get('published');
     
-    const db = getDb();
-    let query = 'SELECT * FROM testimonials WHERE 1=1';
-    const params: any[] = [];
+    let testimonials;
 
     if (published) {
-      query += ' AND published = ?';
-      params.push(parseInt(published));
+      const pubInt = parseInt(published);
+      const rows = await sql`SELECT * FROM testimonials WHERE published = ${pubInt} ORDER BY created_at DESC`;
+      testimonials = rows;
+    } else {
+      const rows = await sql`SELECT * FROM testimonials ORDER BY created_at DESC`;
+      testimonials = rows;
     }
 
-    query += ' ORDER BY created_at DESC';
-
-    const testimonials = db.prepare(query).all(...params);
     return NextResponse.json({ testimonials });
   } catch (error) {
     console.error('Fetch testimonials error:', error);
@@ -41,25 +40,19 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name and quote are required' }, { status: 400 });
     }
 
-    const db = getDb();
-    
-    const insert = db.prepare(`
+    const progStr = program || '';
+    const uniStr = university || '';
+    const rNum = rating || 5;
+    const photoStr = photo || '';
+    const pubInt = published ? 1 : 0;
+
+    const rows = await sql`
       INSERT INTO testimonials (name, program, university, quote, rating, photo, published)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `);
+      VALUES (${name}, ${progStr}, ${uniStr}, ${quote}, ${rNum}, ${photoStr}, ${pubInt})
+      RETURNING *
+    `;
 
-    const result = insert.run(
-      name,
-      program || '',
-      university || '',
-      quote,
-      rating || 5,
-      photo || '',
-      published ? 1 : 0
-    );
-
-    const newTestimonial = db.prepare('SELECT * FROM testimonials WHERE id = ?').get(result.lastInsertRowid);
-    return NextResponse.json(newTestimonial, { status: 201 });
+    return NextResponse.json(rows[0], { status: 201 });
   } catch (error) {
     console.error('Create testimonial error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
 import slugify from 'slugify';
 
@@ -10,14 +10,13 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const db = getDb();
-    const blog = db.prepare('SELECT * FROM blogs WHERE id = ?').get(id);
+    const rows = await sql`SELECT * FROM blogs WHERE id = ${id}`;
     
-    if (!blog) {
+    if (rows.length === 0) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
     }
     
-    return NextResponse.json(blog);
+    return NextResponse.json(rows[0]);
   } catch (error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -37,43 +36,36 @@ export async function PUT(
     const body = await request.json();
     const { title, excerpt, content, category, thumbnail, published } = body;
 
-    const db = getDb();
-    
     // Check if blog exists
-    const existing = db.prepare('SELECT id FROM blogs WHERE id = ?').get(id);
-    if (!existing) {
+    const existing = await sql`SELECT id FROM blogs WHERE id = ${id}`;
+    if (existing.length === 0) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
     }
 
     let slug = slugify(title, { lower: true, strict: true });
     
     // Check if slug exists for OTHER blogs
-    const slugExists = db.prepare('SELECT id FROM blogs WHERE slug = ? AND id != ?').get(slug, id);
-    if (slugExists) {
+    const slugExists = await sql`SELECT id FROM blogs WHERE slug = ${slug} AND id != ${id}`;
+    if (slugExists.length > 0) {
       slug = `${slug}-${Date.now()}`;
     }
 
-    const update = db.prepare(`
+    const excStr = excerpt || '';
+    const catStr = category || 'General';
+    const thumbStr = thumbnail || '';
+    const pubInt = published ? 1 : 0;
+
+    const rows = await sql`
       UPDATE blogs 
-      SET title = ?, slug = ?, excerpt = ?, content = ?, category = ?, 
-          thumbnail = ?, published = ?, updated_at = datetime('now')
-      WHERE id = ?
-    `);
+      SET title = ${title}, slug = ${slug}, excerpt = ${excStr}, content = ${content}, category = ${catStr}, 
+          thumbnail = ${thumbStr}, published = ${pubInt}, updated_at = NOW()
+      WHERE id = ${id}
+      RETURNING *
+    `;
 
-    update.run(
-      title,
-      slug,
-      excerpt || '',
-      content,
-      category || 'General',
-      thumbnail || '',
-      published ? 1 : 0,
-      id
-    );
-
-    const updatedBlog = db.prepare('SELECT * FROM blogs WHERE id = ?').get(id);
-    return NextResponse.json(updatedBlog);
+    return NextResponse.json(rows[0]);
   } catch (error) {
+    console.error('Update blog error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -89,9 +81,7 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const db = getDb();
-    
-    db.prepare('DELETE FROM blogs WHERE id = ?').run(id);
+    await sql`DELETE FROM blogs WHERE id = ${id}`;
     
     return NextResponse.json({ success: true });
   } catch (error) {
