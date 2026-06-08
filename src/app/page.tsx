@@ -133,6 +133,7 @@ export default function Home() {
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent"></div>
         </div>
         
         <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-12">
