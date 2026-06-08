@@ -51,7 +51,7 @@ export default function FloatingActions() {
   ];
 
   return (
-    <div className="fixed bottom-8 right-2 md:right-4 z-[90] flex flex-col gap-4">
+    <div className="fixed bottom-8 right-4 md:right-6 z-[90] flex flex-col gap-4">
       {actions.map((action, index) => {
         const isExternal = action.href.startsWith('http') || action.href.startsWith('tel');
         
