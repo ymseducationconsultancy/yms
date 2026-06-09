@@ -43,9 +43,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "YMS Education Foundation - Your Gateway to Japan",
+  title: "YMS Education Consultancy - Your Gateway to Japan",
   description:
-    "YMS Education Foundation Pvt. Ltd. - Honest counseling, language preparation, and comprehensive visa support for your journey to Japan. Proven visa success rate.",
+    "YMS Education Consultancy Pvt. Ltd. - Honest counseling, language preparation, and comprehensive visa support for your journey to Japan. Proven visa success rate.",
   keywords: [
     "study in japan",
     "japanese language",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     "YMS Education",
   ],
   openGraph: {
-    title: "YMS Education Foundation - Your Gateway to Japan",
+    title: "YMS Education Consultancy - Your Gateway to Japan",
     description:
       "Empowering Dreams, Enriching Futures. Honest counseling, language preparation, and comprehensive visa support.",
     type: "website",

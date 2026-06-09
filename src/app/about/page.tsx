@@ -77,7 +77,7 @@ export default function AboutUs() {
             <TwoToneHeading firstText="About" secondText="YMS Education" className="text-4xl md:text-5xl mb-6" />
             <div className="space-y-6 text-[#334155] text-lg">
               <p>
-                Established with a vision to connect Nepalese students with world-class education in Japan, YMS Education Foundation has been a pioneer in educational guidance and language preparation.
+                Established with a vision to connect Nepalese students with world-class education in Japan, YMS Education Consultancy has been a pioneer in educational guidance and language preparation.
               </p>
               <p>
                 Our journey began with a simple belief: every student deserves honest guidance. Today, we pride ourselves on our proven visa success rate and our comprehensive post-arrival support that ensures our students don't just reach Japan, but thrive there.

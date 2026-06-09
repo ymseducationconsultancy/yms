@@ -314,7 +314,7 @@ export default function Home() {
             </blockquote>
             
             <p className="text-[#171c1f] leading-relaxed mb-8">
-              At YMS Education Foundation, we believe in honest and transparent counseling. Studying abroad is a major life decision, and we are dedicated to providing the right guidance, accurate information, and continuous support from the moment you decide to study in Japan until you achieve your career goals there.
+              At YMS Education Consultancy, we believe in honest and transparent counseling. Studying abroad is a major life decision, and we are dedicated to providing the right guidance, accurate information, and continuous support from the moment you decide to study in Japan until you achieve your career goals there.
             </p>
 
             <AnimatedCard className="bg-[#f0f4f8] p-6 shadow-sm border-l-4 border-[#1B2A6B]">
@@ -322,7 +322,7 @@ export default function Home() {
               <ul className="space-y-3 text-sm text-[#171c1f]">
                 <li className="flex gap-2">
                   <span className="material-symbols-outlined text-[#0097A7] text-[20px]">apartment</span>
-                  <strong>Company:</strong> YMS Education Foundation Pvt. Ltd.
+                  <strong>Company:</strong> YMS Education Consultancy Pvt. Ltd.
                 </li>
                 <li className="flex gap-2">
                   <span className="material-symbols-outlined text-[#0097A7] text-[20px]">location_on</span>

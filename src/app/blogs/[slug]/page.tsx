@@ -111,7 +111,7 @@ export default function BlogDetail() {
               </div>
               <div>
                 <p className="font-bold text-[#1B2A6B]">Written by {blog.author}</p>
-                <p className="text-xs text-gray-500">YMS Education Foundation</p>
+                <p className="text-xs text-gray-500">YMS Education Consultancy</p>
               </div>
             </div>
             <div className="flex gap-2">

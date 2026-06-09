@@ -114,7 +114,7 @@ export default function Footer() {
           className="mt-16 flex justify-center items-center"
         >
           <p className="text-sm text-white/60 font-noto-sans text-center">
-            &copy; {new Date().getFullYear()} YMS Education Foundation Pvt. Ltd. All rights reserved.
+            &copy; {new Date().getFullYear()} YMS Education Consultancy Pvt. Ltd. All rights reserved.
           </p>
         </motion.div>
         
