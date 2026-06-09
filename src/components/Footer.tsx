@@ -66,12 +66,12 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
             <h4 className="font-nunito font-bold text-lg border-b border-white/20 pb-2">Quick Links</h4>
             <ul className="flex flex-col gap-3 font-noto-sans text-sm">
-              <li><Link href="/" className="text-white/80 hover:text-white transition-colors hover:underline">Home</Link></li>
               <li><Link href="/about" className="text-white/80 hover:text-white transition-colors hover:underline">About Us</Link></li>
-              <li><Link href="/study-in-japan" className="text-white/80 hover:text-white transition-colors hover:underline">Study in Japan</Link></li>
+              <li><Link href="/study-in-japan" className="text-white/80 hover:text-white transition-colors hover:underline">Academic Programs</Link></li>
+              <li><Link href="/services" className="text-white/80 hover:text-white transition-colors hover:underline">Admissions Policy</Link></li>
               <li><Link href="/language-class" className="text-white/80 hover:text-white transition-colors hover:underline">Language Classes</Link></li>
-              <li><Link href="/partner-schools" className="text-white/80 hover:text-white transition-colors hover:underline">Partner Schools</Link></li>
-              <li><Link href="/for-parents" className="text-white/80 hover:text-white transition-colors hover:underline">For Parents</Link></li>
+              <li><Link href="/blogs" className="text-white/80 hover:text-white transition-colors hover:underline">Read Our Blog</Link></li>
+              <li><Link href="/admin/login" className="text-white/80 hover:text-white transition-colors hover:underline font-bold">Admin Login</Link></li>
             </ul>
           </motion.div>
 
@@ -79,12 +79,12 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
             <h4 className="font-nunito font-bold text-lg border-b border-white/20 pb-2">Resources</h4>
             <ul className="flex flex-col gap-3 font-noto-sans text-sm">
-              <li><Link href="/coe-visa-support" className="text-white/80 hover:text-white transition-colors hover:underline">COE / Visa Support</Link></li>
-              <li><Link href="/cost-and-requirements" className="text-white/80 hover:text-white transition-colors hover:underline">Cost & Requirements</Link></li>
-              <li><Link href="/life-in-japan" className="text-white/80 hover:text-white transition-colors hover:underline">Life in Japan</Link></li>
-              <li><Link href="/faq" className="text-white/80 hover:text-white transition-colors hover:underline">FAQ</Link></li>
+              <li><Link href="/study-in-japan" className="text-white/80 hover:text-white transition-colors hover:underline">Student Life in Japan</Link></li>
+              <li><Link href="/services" className="text-white/80 hover:text-white transition-colors hover:underline">Career Services</Link></li>
+              <li><Link href="/services" className="text-white/80 hover:text-white transition-colors hover:underline">Visa Information</Link></li>
               <li><Link href="/testimonials" className="text-white/80 hover:text-white transition-colors hover:underline">Success Stories</Link></li>
-              <li><Link href="/contact" className="text-white/80 hover:text-white transition-colors hover:underline">Contact</Link></li>
+              <li><Link href="/gallery" className="text-white/80 hover:text-white transition-colors hover:underline">Photo Gallery</Link></li>
+              <li><Link href="#" className="text-white/80 hover:text-white transition-colors hover:underline">Privacy Policy</Link></li>
             </ul>
           </motion.div>
 
