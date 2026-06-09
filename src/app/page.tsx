@@ -229,21 +229,15 @@ export default function Home() {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-[80px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-center">
             {/* Left Column: Stats */}
-            <div className="grid grid-cols-2 gap-4 text-center lg:text-left">
-              <div className="flex flex-col items-center lg:items-start space-y-2">
-                <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={100} />+</span>
-                <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Students</span>
-              </div>
-              <div className="flex flex-col items-center lg:items-start space-y-2 border-l border-gray-200 pl-4 lg:pl-6">
-                <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={3} />+</span>
-                <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Yrs Experience</span>
-              </div>
+            <div className="lg:col-span-1 flex flex-col items-center lg:items-start space-y-2 text-center lg:text-left">
+              <span className="font-[family-name:var(--font-playfair)] text-[32px] lg:text-[40px] leading-[1.2] font-bold text-[#E8192C]"><Counter to={100} />+</span>
+              <span className="font-[family-name:var(--font-dm-sans)] text-[12px] lg:text-[14px] font-medium leading-[1.4] tracking-[0.05em] text-[#475569] uppercase">Students</span>
             </div>
 
             {/* Right Column: Partners Marquee */}
-            <div className="relative w-full overflow-hidden flex flex-col pt-8 lg:pt-0 border-t lg:border-t-0 border-gray-100 lg:border-l lg:pl-12 lg:border-gray-200">
+            <div className="lg:col-span-3 relative w-full overflow-hidden flex flex-col pt-8 lg:pt-0 border-t lg:border-t-0 border-gray-100 lg:border-l lg:pl-12 lg:border-gray-200">
               <p className="text-[12px] font-bold text-[#1B2A6B] uppercase tracking-[0.15em] mb-6 font-[family-name:var(--font-dm-sans)] text-center lg:text-left">
                 In Partnership With
               </p>
