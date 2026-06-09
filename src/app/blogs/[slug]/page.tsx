@@ -1,65 +1,54 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import SectionWrapper from '@/components/SectionWrapper';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import { sql } from '@/lib/db';
+import { notFound } from 'next/navigation';
 
-interface Blog {
-  id: number;
-  title: string;
-  slug: string;
-  content: string;
-  category: string;
-  thumbnail: string;
-  author: string;
-  created_at: string;
+export const revalidate = 3600; // Revalidate every hour
+
+interface Props {
+  params: { slug: string };
 }
 
-export default function BlogDetail() {
-  const { slug } = useParams();
-  const [blog, setBlog] = useState<Blog | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (slug) {
-      fetchBlog();
-    }
-  }, [slug]);
-
-  const fetchBlog = async () => {
-    try {
-      const res = await fetch(`/api/blogs/slug/${slug}`);
-      if (res.ok) {
-        const data = await res.json();
-        setBlog(data);
-      }
-    } catch (error) {
-      console.error('Error fetching blog:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <span className="material-symbols-outlined animate-spin text-5xl text-[#E8192C]">progress_activity</span>
-      </div>
-    );
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const rows = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = 1`;
+  const blog = rows[0];
 
   if (!blog) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl font-black text-[#1B2A6B] mb-4">Blog Not Found</h1>
-        <Link href="/blogs" className="text-[#E8192C] font-bold hover:underline flex items-center gap-2">
-          <span className="material-symbols-outlined">arrow_back</span> Back to Blogs
-        </Link>
-      </div>
-    );
+    return {
+      title: 'Blog Not Found | YMS Education Consultancy',
+    };
+  }
+
+  return {
+    title: `${blog.title} | YMS Education Consultancy`,
+    description: blog.excerpt || blog.title,
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt || blog.title,
+      url: `https://yms.edu.np/blogs/${blog.slug}`,
+      type: 'article',
+      publishedTime: blog.created_at,
+      authors: [blog.author],
+      images: blog.thumbnail ? [{ url: blog.thumbnail }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.excerpt || blog.title,
+      images: blog.thumbnail ? [blog.thumbnail] : [],
+    },
+  };
+}
+
+export default async function BlogDetail({ params }: Props) {
+  const { slug } = params;
+  const rows = await sql`SELECT * FROM blogs WHERE slug = ${slug} AND published = 1`;
+  const blog = rows[0];
+
+  if (!blog) {
+    notFound();
   }
 
   return (
