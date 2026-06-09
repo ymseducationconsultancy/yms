@@ -154,22 +154,21 @@ export default function Home() {
             </motion.div>
             
             <motion.h1 
-              className="font-[family-name:var(--font-playfair)] text-[40px] md:text-[56px] leading-[1.2] md:leading-[1.1] font-bold tracking-[-0.02em] text-[#1B2A6B]"
+              className="font-[family-name:var(--font-playfair)] text-[36px] md:text-[48px] lg:text-[52px] leading-[1.2] md:leading-[1.1] font-bold tracking-[-0.02em] text-[#1B2A6B]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              Empowering Dreams,<br/>
-              <span className="text-[#E8192C]">Enriching Futures</span>
+              Study in Japan with <span className="text-[#E8192C]">Trusted</span> Japanese Language & Visa Support from Nepal
             </motion.h1>
             
             <motion.p 
-              className="font-[family-name:var(--font-dm-sans)] text-[18px] leading-[1.6] text-[#475569] max-w-2xl"
+              className="font-[family-name:var(--font-dm-sans)] text-[16px] md:text-[18px] leading-[1.6] text-[#475569] max-w-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.25 }}
             >
-              Your dedicated partner in navigating the journey to study in Japan. We provide expert guidance, transparent processes, and unwavering support to turn your academic aspirations into reality.
+              YMS Education provides Japanese language training, school selection, COE/visa documentation, interview preparation, and post-arrival guidance for students who want to build their future in Japan.
             </motion.p>
             
             <motion.div 
@@ -184,6 +183,23 @@ export default function Home() {
               <Link href="/about" className="bg-transparent border border-[#475569] text-[#475569] hover:bg-[#1B2A6B] hover:text-white hover:border-[#1B2A6B] px-[32px] py-[16px] rounded transition-all duration-300 font-[family-name:var(--font-dm-sans)] text-[14px] font-medium leading-[1.4] tracking-[0.05em] flex items-center justify-center gap-2">
                 Learn More <span className="material-symbols-outlined">arrow_forward</span>
               </Link>
+            </motion.div>
+            
+            <motion.div
+              className="pt-6 border-t border-gray-200 mt-6 hidden lg:block"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[#475569] text-[13px] font-medium uppercase tracking-wider font-[family-name:var(--font-dm-sans)]">
+                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[#0097A7] text-[16px]">check_circle</span> N5-N3 Japanese Classes</span>
+                <span className="text-gray-300">|</span>
+                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[#0097A7] text-[16px]">check_circle</span> COE & Visa Documentation</span>
+                <span className="text-gray-300">|</span>
+                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[#0097A7] text-[16px]">check_circle</span> School Selection Support</span>
+                <span className="text-gray-300">|</span>
+                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[#0097A7] text-[16px]">check_circle</span> Post-Arrival Guidance in Japan</span>
+              </div>
             </motion.div>
             
           </motion.div>
