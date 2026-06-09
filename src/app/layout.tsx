@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import ScrollProgress from "@/components/ScrollProgress";
 import GlobalBackground from "@/components/GlobalBackground";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -95,6 +96,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingActions />
+        <WhatsAppButton />
       </body>
     </html>
   );

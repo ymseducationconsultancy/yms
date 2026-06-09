@@ -293,32 +293,29 @@ export default function Testimonials() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-4 md:px-12 text-center bg-transparent relative overflow-hidden z-10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full dot-pattern opacity-[0.03]"></div>
-          <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#1B2A6B]/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-          <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-[#E8192C]/5 rounded-full translate-x-1/3 blur-3xl"></div>
-        </div>
-        
-        <motion.div 
-          className="relative z-10 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-nunito text-5xl md:text-6xl font-black mb-8 tracking-tight">
-            <span className="text-[#E8192C] block mb-2">Ready to</span>
-            <span className="text-[#1B2A6B]"> Be Our Next Success Story?</span>
-          </h2>
-          <p className="font-nunito-sans text-xl text-[#334155] mb-12 font-light leading-relaxed">
-            Join hundreds of successful scholars in Japan. Our expert academic counselors provide bespoke guidance for your unique career trajectory.
+      <section className="relative py-24 bg-[#1B2A6B] overflow-hidden mt-20">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        <div className="max-w-[1000px] mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black font-nunito text-white mb-6">Ready to Be Our Next Success Story?</h2>
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-noto-sans">
+            Join hundreds of successful scholars in Japan. Our expert counselors provide bespoke guidance for your unique career trajectory.
           </p>
-          <Link href="/contact" className="inline-block bg-[#E8192C] text-white px-12 py-5 rounded-full font-nunito text-lg font-bold shadow-premium hover:shadow-[0_20px_40px_-10px_rgba(232,25,44,0.3)] hover:-translate-y-1 active:scale-95 transition-all duration-300 tracking-wide">
-            SCHEDULE YOUR CONSULTATION
-          </Link>
-          <p className="mt-6 font-noto-sans text-sm text-[#334155]/70 uppercase tracking-widest">Free 30-minute initial assessment</p>
-        </motion.div>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <Link href="/contact" className="px-8 py-4 bg-[#E8192C] text-white rounded-full font-bold shadow-[0_0_20px_rgba(232,25,44,0.4)] hover:bg-white hover:text-[#E8192C] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">event_available</span>
+              Book Free Counseling
+            </Link>
+            <a href="tel:+9779767220276" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-[#1B2A6B] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">call</span>
+              Call Us Now
+            </a>
+            <a href="https://wa.me/9779767220276" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold hover:bg-[#128C7E] shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">chat</span>
+              WhatsApp Us
+            </a>
+          </div>
+          <p className="mt-8 font-noto-sans text-sm text-white/50 uppercase tracking-widest">Free 30-minute initial assessment</p>
+        </div>
       </section>
     </div>
   );

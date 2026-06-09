@@ -225,6 +225,30 @@ export default function StudyInJapan() {
           </AnimatedCard>
         </div>
       </SectionWrapper>
+      {/* --- Section 7: Final CTA --- */}
+      <section className="relative py-24 bg-[#1B2A6B] overflow-hidden mt-20">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        <div className="max-w-[1000px] mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black font-nunito text-white mb-6">Ready to Start Your Journey to Japan?</h2>
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-noto-sans">
+            Take the first step towards your dream. Let our experts guide you through university selection, language preparation, and visa processing with a proven track record.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <Link href="/contact" className="px-8 py-4 bg-[#E8192C] text-white rounded-full font-bold shadow-[0_0_20px_rgba(232,25,44,0.4)] hover:bg-white hover:text-[#E8192C] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">event_available</span>
+              Book Free Counseling
+            </Link>
+            <a href="tel:+9779767220276" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-[#1B2A6B] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">call</span>
+              Call Us Now
+            </a>
+            <a href="https://wa.me/9779767220276" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold hover:bg-[#128C7E] shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">chat</span>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

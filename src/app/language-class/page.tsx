@@ -158,6 +158,30 @@ export default function LanguageClass() {
           </motion.div>
         </div>
       </SectionWrapper>
+      {/* --- Section 6: Final CTA --- */}
+      <section className="relative py-24 bg-[#E8192C] overflow-hidden mt-20 rounded-t-[3rem] md:rounded-t-[5rem]">
+        <div className="absolute inset-0 bg-[url('/images/pattern-bg.png')] opacity-10"></div>
+        <div className="max-w-[1000px] mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black font-nunito text-white mb-6">Start Learning Japanese Today</h2>
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-noto-sans">
+            Whether you're aiming for a student visa or simply want to master a new language, our classes provide the perfect foundation. Join our next batch!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <Link href="/contact" className="px-8 py-4 bg-white text-[#E8192C] rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:bg-[#1B2A6B] hover:text-white transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">event_available</span>
+              Book Free Counseling
+            </Link>
+            <a href="tel:+9779767220276" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-[#E8192C] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">call</span>
+              Call Us
+            </a>
+            <a href="https://wa.me/9779767220276" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold hover:bg-[#128C7E] shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined">chat</span>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
