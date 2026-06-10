@@ -211,7 +211,7 @@ export default function Home() {
               <Image 
                 alt="Student studying" 
                 className="object-cover" 
-                src="/images/hero-image.png"
+                src="/images/hero-img-updated.png"
                 fill
                 priority={true}
                 sizes="(max-width: 768px) 100vw, 50vw"
