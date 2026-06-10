@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
     "framer-motion": "^12.40.0",
     "jimp": "^1.6.1",
     "jose": "^6.2.3",
