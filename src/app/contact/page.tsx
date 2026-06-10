@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from '@/components/SectionWrapper';
 import AnimatedCard from '@/components/AnimatedCard';
+import FAQSection from '@/components/FAQSection';
 
 export default function Contact() {
   return (
@@ -142,6 +143,9 @@ export default function Contact() {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 }

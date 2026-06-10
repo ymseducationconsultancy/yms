@@ -68,31 +68,61 @@ export default function LanguageClass() {
       <SectionWrapper id="courses" bgColor="bg-transparent" className="relative z-10">
         <div className="text-center mb-16">
           <TwoToneHeading firstText="Our" secondText="Courses" className="text-4xl md:text-5xl" />
+          <p className="text-[#334155] max-w-2xl mx-auto mt-4 text-lg">
+            Structured levels designed for the Japanese student visa journey — from complete beginner to exam-ready.
+          </p>
         </div>
-        <div className="max-w-[1280px] mx-auto grid lg:grid-cols-3 gap-8">
+        <div className="max-w-[1280px] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "JLPT Preparation",
-              level: "N5 to N1",
-              desc: "Intensive preparation for the Japanese Language Proficiency Test. Focus on kanji, grammar, reading, and listening.",
-              duration: "6 Months / Level",
+              title: "N5 — Beginner",
+              level: "JLPT / NAT Level 5",
+              desc: "Introduction to hiragana, katakana, and basic kanji. Covers everyday vocabulary, simple sentence structures, and basic conversation.",
+              duration: "3 Months",
               color: "border-[#E8192C]",
               bg: "bg-[#ffdad7]",
               text: "text-[#E8192C]"
             },
             {
-              title: "NAT Test Prep",
-              level: "Level 5 to 1",
-              desc: "Targeted practice for the NAT test, popular for student visa applications. Includes extensive mock tests.",
-              duration: "3 Months / Level",
+              title: "N4 — Elementary",
+              level: "JLPT / NAT Level 4",
+              desc: "Expands vocabulary and grammar. Students can understand basic Japanese in everyday situations and read simple passages.",
+              duration: "3 Months",
               color: "border-[#1B2A6B]",
               bg: "bg-[#a7b5fe]/30",
               text: "text-[#1B2A6B]"
             },
             {
-              title: "Conversational",
+              title: "N3 — Intermediate",
+              level: "JLPT / NAT Level 3",
+              desc: "Bridge between basic and advanced Japanese. Covers more complex grammar, reading comprehension, and listening practice.",
+              duration: "4 Months",
+              color: "border-[#0097A7]",
+              bg: "bg-[#97f0ff]/50",
+              text: "text-[#0097A7]"
+            },
+            {
+              title: "JLPT / NAT / J.TEST / JFT Basic",
+              level: "Exam Prep",
+              desc: "Focused exam strategy for JLPT, NAT-TEST, J.TEST, and JFT-Basic. Includes timed mock tests, answer analysis, and weak-point targeting.",
+              duration: "Flexible",
+              color: "border-[#E8192C]",
+              bg: "bg-[#ffdad7]",
+              text: "text-[#E8192C]"
+            },
+            {
+              title: "Interview Preparation",
+              level: "Embassy & School",
+              desc: "Mock interview sessions simulating Japan Embassy and school interviews. Covers common questions, posture, tone, and confidence-building.",
+              duration: "2–4 Weeks",
+              color: "border-[#1B2A6B]",
+              bg: "bg-[#a7b5fe]/30",
+              text: "text-[#1B2A6B]"
+            },
+            {
+              title: "Conversational Japanese",
               level: "Beginner to Pro",
-              desc: "Focus on speaking and listening skills for daily life in Japan or business environments.",
+              desc: "Focus on speaking and listening skills for daily life in Japan or business environments. Gain confidence in practical communication.",
               duration: "Flexible",
               color: "border-[#0097A7]",
               bg: "bg-[#97f0ff]/50",
@@ -102,8 +132,8 @@ export default function LanguageClass() {
             <AnimatedCard key={index} delay={index * 0.1} className="flex flex-col bg-white/80 backdrop-blur-md" borderColor={`border-t-[6px] ${course.color.replace('border-', '')}`}>
               <div className="p-8 flex-grow">
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-black font-nunito text-[#1B2A6B]">{course.title}</h3>
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${course.bg} ${course.text}`}>{course.level}</span>
+                  <h3 className="text-xl font-black font-nunito text-[#1B2A6B] leading-snug">{course.title}</h3>
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap ml-2 ${course.bg} ${course.text}`}>{course.level}</span>
                 </div>
                 <p className="text-[#334155] mb-6">{course.desc}</p>
                 <div className="flex items-center gap-2 text-sm font-bold text-gray-500 mb-8">
@@ -114,8 +144,8 @@ export default function LanguageClass() {
               <div className="p-6 bg-white/50 border-t border-gray-100 text-center">
                 <Link href="/contact" className="block w-full">
                   <button className={`w-full py-3 rounded-full font-bold text-white transition-colors cursor-pointer ${
-                    index === 0 ? 'bg-[#E8192C] hover:bg-[#1B2A6B]' : 
-                    index === 1 ? 'bg-[#1B2A6B] hover:bg-[#E8192C]' : 
+                    index % 3 === 0 ? 'bg-[#E8192C] hover:bg-[#1B2A6B]' : 
+                    index % 3 === 1 ? 'bg-[#1B2A6B] hover:bg-[#E8192C]' : 
                     'bg-[#0097A7] hover:bg-[#1B2A6B]'
                   }`}>
                     Enroll Now
@@ -126,6 +156,7 @@ export default function LanguageClass() {
           ))}
         </div>
       </SectionWrapper>
+
 
       <SectionWrapper id="instructor" bgColor="bg-transparent" className="relative z-10 mb-20">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center bg-white/80 backdrop-blur-md p-10 md:p-16 rounded-[3rem] shadow-xl border border-white">

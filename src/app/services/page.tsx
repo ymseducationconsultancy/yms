@@ -48,39 +48,39 @@ export default function Services() {
         <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "Language Preparation",
-              desc: "JLPT/NAT training and conversational classes tailored for success.",
+              title: "Japanese Language Classes",
+              desc: "Comprehensive N5, N4, and N3 training. We offer targeted prep for JLPT, NAT, J.TEST, and JFT Basic with flexible schedules, expert teachers, regular mock tests, and interview practice.",
               icon: "translate",
               color: "text-[#E8192C]"
             },
             {
-              title: "University Placement",
-              desc: "School selection, document preparation, and application support.",
-              icon: "account_balance",
+              title: "Study in Japan",
+              desc: "Complete guidance on eligibility, intakes, application process, school types, benefits, rules, and timeline.",
+              icon: "public",
               color: "text-[#1B2A6B]"
             },
             {
-              title: "Visa Processing",
-              desc: "Documentation review, COE application, and embassy interview prep.",
+              title: "COE Document Preparation",
+              desc: "Meticulous preparation of all Certificate of Eligibility (COE) documents required for your Japan student visa application.",
               icon: "description",
               color: "text-[#0097A7]"
             },
             {
-              title: "Pre-Departure Orientation",
-              desc: "Cultural preparation, travel guidance, and what to expect in Japan.",
-              icon: "flight_takeoff",
+              title: "Embassy Interview Coaching",
+              desc: "One-on-one mock interview sessions and guidance to help you confidently answer questions at the Japan Embassy.",
+              icon: "record_voice_over",
               color: "text-[#E8192C]"
             },
             {
-              title: "Post-Arrival Support",
-              desc: "Housing assistance, city registration, and bank account setup.",
-              icon: "home",
+              title: "Pre-Departure Orientation",
+              desc: "Final briefings covering Japanese culture, daily life, rules, and what to expect on arrival — so you land prepared.",
+              icon: "flight_takeoff",
               color: "text-[#1B2A6B]"
             },
             {
-              title: "Career Counseling",
-              desc: "Employment guidance, part-time job search, and interview preparation.",
-              icon: "work",
+              title: "Arrival Support",
+              desc: "We guide you through your first days in Japan — housing, city registration, bank account setup, and transport card.",
+              icon: "home",
               color: "text-[#0097A7]"
             }
           ].map((service, index) => (
@@ -134,6 +134,80 @@ export default function Services() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </SectionWrapper>
+
+      {/* --- Additional Specialized Support --- */}
+      <SectionWrapper id="additional-support" bgColor="bg-gray-50" className="py-24 border-t border-gray-200">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-[80px]">
+          <div className="text-center mb-16">
+            <TwoToneHeading firstText="Additional" secondText="Specialized Support" className="text-4xl md:text-5xl mb-4" />
+            <p className="text-[#334155] text-lg max-w-2xl mx-auto">
+              We provide comprehensive guidance beyond the basics to ensure you are fully prepared for every stage of your journey.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <AnimatedCard delay={0.1} className="p-8 bg-white" borderColor="border-t-[#E8192C]">
+              <div className="w-14 h-14 rounded-2xl bg-[#E8192C]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#E8192C]">fact_check</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">Interview Preparation</h3>
+              <p className="text-[#334155] leading-relaxed">
+                School interview & embassy interview coaching, mock tests.
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard delay={0.2} className="p-8 bg-white" borderColor="border-t-[#0097A7]">
+              <div className="w-14 h-14 rounded-2xl bg-[#0097A7]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#0097A7]">folder_shared</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">COE & Visa Documentation Support</h3>
+              <p className="text-[#334155] leading-relaxed">
+                Document checklist, sponsor documents, bank balance, income source, asset formation, gap explanation.
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard delay={0.3} className="p-8 bg-white" borderColor="border-t-[#E8192C]">
+              <div className="w-14 h-14 rounded-2xl bg-[#E8192C]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#E8192C]">flight_takeoff</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">Pre-Departure Briefing</h3>
+              <p className="text-[#334155] leading-relaxed">
+                Orientation on life in Japan, part-time jobs, cultural dos and don'ts.
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard delay={0.4} className="p-8 bg-white" borderColor="border-t-[#1B2A6B]">
+              <div className="w-14 h-14 rounded-2xl bg-[#1B2A6B]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#1B2A6B]">family_restroom</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">For Parents</h3>
+              <p className="text-[#334155] leading-relaxed">
+                Safety, study cost, sponsor responsibility, part-time work rules, dormitory, and YMS contact support.
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard delay={0.5} className="p-8 bg-white" borderColor="border-t-[#0097A7]">
+              <div className="w-14 h-14 rounded-2xl bg-[#0097A7]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#0097A7]">location_city</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">Life in Japan</h3>
+              <p className="text-[#334155] leading-relaxed">
+                Residence card, city office, bank account, SIM, health insurance, dormitory rules, and part-time job rules.
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard delay={0.6} className="p-8 bg-white" borderColor="border-t-[#E8192C]">
+              <div className="w-14 h-14 rounded-2xl bg-[#E8192C]/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-[#E8192C]">apartment</span>
+              </div>
+              <h3 className="text-xl font-black font-nunito text-[#1B2A6B] mb-4">Accommodation Support</h3>
+              <p className="text-[#334155] leading-relaxed">
+                Assistance with finding safe, convenient, and affordable student dormitories or apartments near your institution.
+              </p>
+            </AnimatedCard>
+          </div>
         </div>
       </SectionWrapper>
     </div>

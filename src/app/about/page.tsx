@@ -93,6 +93,65 @@ export default function AboutUs() {
         </div>
       </SectionWrapper>
 
+      {/* --- Full CEO Message --- */}
+      <section id="ceo-message" className="py-24 bg-[#f8fafc] relative z-10">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-[80px]">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+            {/* Left: Photo */}
+            <motion.div
+              className="relative max-w-[420px] mx-auto w-full"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/team/founder.jpeg"
+                  alt="Bikram Khadka - CEO"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border-t-4 border-[#E8192C]">
+                <h3 className="font-nunito font-black text-xl text-[#1B2A6B]">Bikram Khadka</h3>
+                <p className="text-[#0097A7] font-semibold text-sm">Representative Director / CEO</p>
+              </div>
+            </motion.div>
+
+            {/* Right: Full message */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6 pt-4"
+            >
+              <TwoToneHeading firstText="Message from" secondText="the CEO" className="text-4xl md:text-5xl mb-2" />
+
+              <blockquote className="pl-6 border-l-4 border-[#E8192C] text-xl font-nunito italic text-[#334155]">
+                "Our goal is not just to send students to Japan, but to ensure they succeed and build a solid foundation for their future."
+              </blockquote>
+
+              <p className="text-[#171c1f] leading-relaxed">
+                At YMS Education Consultancy, we believe in honest and transparent counseling. Studying abroad is a major life decision, and we are dedicated to providing the right guidance, accurate information, and continuous support from the moment you decide to study in Japan until you achieve your career goals there.
+              </p>
+
+              <p className="text-[#171c1f] leading-relaxed">
+                With years of experience and strong relationships with top Japanese language schools, vocational colleges, and universities, we match every student with the institution that truly fits their background, aspirations, and budget — never the other way around.
+              </p>
+
+              <p className="text-[#171c1f] leading-relaxed">
+                We remain committed to ethical practices, post-arrival guidance, and building a community of Nepali students who thrive in Japan — both academically and professionally.
+              </p>
+
+
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* --- Section: Our History --- */}
       <SectionWrapper id="history" bgColor="bg-white" className="relative z-10 py-24">
         <div className="max-w-[1280px] mx-auto px-4">
@@ -330,68 +389,143 @@ export default function AboutUs() {
         </div>
       </SectionWrapper>
 
-      {/* --- Section 5: Partners --- */}
-      <section className="py-16 border-t border-gray-200 bg-white">
-        <div className="max-w-[1280px] mx-auto px-4 text-center">
-          <p className="text-sm font-bold text-[#1B2A6B] uppercase tracking-widest mb-8">In Partnership With</p>
-          <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto w-full">
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0 }}
-            >
-              <Image src="/images/partners/yamasa-logo.png" alt="YAMASA" width={110} height={55} className="object-contain mix-blend-multiply" />
-            </motion.div>
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Image src="/images/partners/egao-logo.png" alt="EGAO" width={110} height={55} className="object-contain mix-blend-multiply" />
-            </motion.div>
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <Image src="/images/partners/nepal-manpower-logo.png" alt="NEPAL MANPOWER" width={110} height={55} className="object-contain" />
-            </motion.div>
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <Image src="/images/partners/remnant-logo.png" alt="REMNANT JAPANESE LANGUAGE SCHOOL" width={120} height={55} className="object-contain" />
-            </motion.div>
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <Image src="/images/partners/kawahara-logo.png" alt="KAWAHARA E-BUSINESS COLLEGE" width={125} height={55} className="object-contain" />
-            </motion.div>
-            <motion.div 
-              className="hover:scale-105 transition-all duration-300 cursor-pointer flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7 }}
-            >
-              <Image src="/images/partners/aichi-logo.png" alt="AICHI INT'L ACADEMY" width={110} height={55} className="object-contain" />
-            </motion.div>
+      {/* --- Section 5: Partner Schools --- */}
+      <section className="py-24 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-[1280px] mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-sm font-bold text-[#E8192C] uppercase tracking-widest mb-3">Our Network</p>
+            <h2 className="text-4xl md:text-5xl font-black font-nunito text-[#1B2A6B]">Partner Schools in Japan</h2>
+            <p className="mt-4 text-[#334155] max-w-2xl mx-auto">We have established strong relationships with some of the best Japanese language schools and colleges to ensure you get top-tier education.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "The Yamasa Institute",
+                logo: "/images/partners/yamasa-logo.png",
+                location: "Okazaki, Aichi",
+                intake: "Jan, Apr, Jul, Oct",
+                course: "Academic Intensive (AIJP)",
+                tuition: "~966,000 JPY / Year",
+                status: "Official Partner",
+                link: "https://www.yamasa.org/"
+              },
+              {
+                name: "EGAO Japanese Language School",
+                logo: "/images/partners/egao-logo.png",
+                location: "Tokyo, Japan",
+                intake: "April, October",
+                course: "General Japanese Course",
+                tuition: "~800,000 JPY / Year",
+                status: "Official Partner",
+                link: "#"
+              },
+              {
+                name: "Remnant Japanese Language School",
+                logo: "/images/partners/remnant-logo.png",
+                location: "Tokyo, Japan",
+                intake: "April, October",
+                course: "University Prep Course",
+                tuition: "~800,000 JPY / Year",
+                status: "Official Partner",
+                link: "#"
+              },
+              {
+                name: "Kawahara E-Business College",
+                logo: "/images/partners/kawahara-logo.png",
+                location: "Matsuyama, Ehime",
+                intake: "April",
+                course: "Japanese Language Course",
+                tuition: "~710,000 JPY / Year",
+                status: "Official Partner",
+                link: "https://www.kawahara.ac.jp/"
+              },
+              {
+                name: "Aichi International Academy",
+                logo: "/images/partners/aichi-logo.png",
+                location: "Nagoya, Aichi",
+                intake: "April, October",
+                course: "Advanced Education Course",
+                tuition: "~800,000 JPY / Year",
+                status: "Official Partner",
+                link: "http://www.aiaso.gr.jp/"
+              },
+              {
+                name: "Nepal Manpower",
+                logo: "/images/partners/nepal-manpower-logo.png",
+                location: "Kathmandu, Nepal",
+                intake: "Year-round",
+                course: "Employment & Placement",
+                tuition: "N/A",
+                status: "Employment Partner",
+                link: "#"
+              }
+            ].map((school, i) => (
+              <motion.div 
+                key={i}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="h-20 flex items-center justify-center mb-6">
+                  <Image src={school.logo} alt={school.name} width={140} height={70} className="object-contain mix-blend-multiply transition-all duration-500 hover:scale-105" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-[#1B2A6B] font-nunito mb-4 text-center line-clamp-2 min-h-[56px]">{school.name}</h3>
+                
+                <div className="space-y-3 mb-8 flex-grow text-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#0097A7] text-[18px] mt-0.5">location_on</span>
+                    <div>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Location</p>
+                      <p className="text-gray-800 font-medium">{school.location}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#0097A7] text-[18px] mt-0.5">calendar_month</span>
+                    <div>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Intake</p>
+                      <p className="text-gray-800 font-medium">{school.intake}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#0097A7] text-[18px] mt-0.5">menu_book</span>
+                    <div>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Course</p>
+                      <p className="text-gray-800 font-medium">{school.course}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#0097A7] text-[18px] mt-0.5">payments</span>
+                    <div>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Approx. Tuition</p>
+                      <p className="text-gray-800 font-medium">{school.tuition}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-[#0097A7] text-[18px] mt-0.5">handshake</span>
+                    <div>
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Relationship</p>
+                      <p className="text-gray-800 font-medium text-[#E8192C]">{school.status}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Link 
+                  href="/contact"
+                  className="w-full py-3 px-4 rounded-xl font-bold text-center border-2 border-[#1B2A6B] text-[#1B2A6B] hover:bg-[#1B2A6B] hover:text-white transition-colors flex items-center justify-center gap-2 group/btn"
+                >
+                  View Complete Details
+                  <span className="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+
     </div>
   );
 }
