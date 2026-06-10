@@ -109,7 +109,7 @@ export default function StudyInJapan() {
 
         <div className="max-w-[1280px] mx-auto grid md:grid-cols-3 gap-8">
           {[
-            { name: "Nagoya", img: "https://images.unsplash.com/photo-1596489370601-527e02e0ee37?q=80&w=800&auto=format&fit=crop" },
+            { name: "Nagoya", img: "https://images.unsplash.com/photo-1619906942421-a85546b6937d?q=80&w=800&auto=format&fit=crop" },
             { name: "Tokyo", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDF9ze6xCAvZaMXcAosZnPYK5QBBZdbJ0kkQwcRfcziFJ9KVUj8i5NFPhuMYV6YdOlkZlxGxp4NCA3ce6CQwycaUrICUXQfXRdnGQCHD0oOeGM_t2v8IQFx2YG9P_wdmbQerwdGLwljEbao7dx2WA9Yl3CrDCaYz_f-gsxU0Hcnx3h541cMBg3hFqRQYUO15MxzjnrVqnJzlOysXNXUPXz_-SyhU3tTqIZf83X0kIm5EKObjVmpzFxBPSDBfGqnkV2s0aKigog6R7CZ" },
             { name: "Osaka", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD7KPeVJiYYejOlbGSXH9l-YTxGF_ddFSCYY34aMsJxnjfD8DFfl7a-Xy72FwN6AccivFrt8FN3u8iOQePBkxVgOZOd1URSnttvXGVIGj-ui4aJGOjPUmZrjElXbF6TmWpN_Mf43iGb5s6mV8tw-GwF7cXYTzVPlMQMbC1WwNL2ttBkluWHInuzKHJQguVrI5URW0nfHdybECZDwv6JNz14i0BHXfy4WwrHmFUaHldnvcSgyGTAYnzu8gJKkcwiYzcLLWbyowGncxwR" },
           ].map((city, index) => (
