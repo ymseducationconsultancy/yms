@@ -47,13 +47,15 @@ export const metadata: Metadata = {
   description:
     "YMS Education Consultancy Pvt. Ltd. - Honest counseling, language preparation, and comprehensive visa support for your journey to Japan. Proven visa success rate.",
   keywords: [
-    "study in japan",
-    "japanese language",
+    "Study in Japan from Nepal",
+    "Japan education consultancy Nepal",
+    "Japanese language class Nepal",
+    "Japan student visa Nepal",
+    "COE documentation Nepal",
+    "JLPT class Kathmandu",
+    "JFT Basic class Nepal",
     "overseas education",
-    "nepal",
     "visa support",
-    "JLPT",
-    "NAT",
     "YMS Education",
   ],
   openGraph: {
