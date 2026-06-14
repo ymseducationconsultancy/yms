@@ -406,7 +406,7 @@ export default function AboutUs() {
                 location: "Okazaki, Aichi",
                 intake: "Jan, Apr, Jul, Oct",
                 course: "Academic Intensive (AIJP)",
-                tuition: "~966,000 JPY / Year",
+                tuition: "~873,900 JPY / Year",
                 status: "Official Partner",
                 link: "https://www.yamasa.org/"
               },
