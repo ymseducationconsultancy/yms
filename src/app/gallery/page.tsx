@@ -17,17 +17,17 @@ interface GalleryItem {
 const FALLBACK_ITEMS: GalleryItem[] = [
   {
     id: 1,
-    title: "Language Program Certification",
+    title: "Scholarship Success in Japan",
     category: "Success",
     img: "/images/gallery/certification-1.jpg",
-    desc: "Students receiving their Japanese language course completion certificates."
+    desc: "YMS students proudly receiving scholarship certificates in Japan."
   },
   {
     id: 2,
-    title: "JLPT Certificate Distribution",
+    title: "Scholarship Award Ceremony",
     category: "Success",
     img: "/images/gallery/certification-2.jpg",
-    desc: "Celebrating student successes in the JLPT exam achievements."
+    desc: "A proud moment as our student receives a scholarship award in Japan."
   },
   {
     id: 3,

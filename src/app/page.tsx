@@ -55,14 +55,14 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
 const FALLBACK_GALLERY_ITEMS = [
   {
     id: 1,
-    title: "Language Program Certification",
-    subtitle: "Students receiving course completion certificates",
+    title: "Scholarship Success in Japan",
+    subtitle: "YMS students proudly receiving scholarship certificates in Japan",
     img: "/images/gallery/certification-1.jpg"
   },
   {
     id: 2,
-    title: "JLPT Certificate Distribution",
-    subtitle: "Celebrating student successes in the JLPT exam",
+    title: "Scholarship Award Ceremony",
+    subtitle: "A proud moment as our student receives a scholarship award in Japan",
     img: "/images/gallery/certification-2.jpg"
   },
   {

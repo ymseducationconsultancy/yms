@@ -125,8 +125,8 @@ export async function initDb() {
   // Seed gallery
   const galleryRows = await sql`SELECT * FROM gallery`;
   if (galleryRows.length === 0) {
-    await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Language Program Certification', 'Success', '/images/gallery/certification-1.jpg', 'Students receiving their Japanese language course completion certificates.', 1)`;
-    await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('JLPT Certificate Distribution', 'Success', '/images/gallery/certification-2.jpg', 'Celebrating student successes in the JLPT exam achievements.', 1)`;
+    await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Scholarship Success in Japan', 'Success', '/images/gallery/certification-1.jpg', 'YMS students proudly receiving scholarship certificates in Japan.', 1)`;
+    await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Scholarship Award Ceremony', 'Success', '/images/gallery/certification-2.jpg', 'A proud moment as our student receives a scholarship award in Japan.', 1)`;
     await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Interactive Study Sessions', 'Events', '/images/gallery/college-1.jpg', 'A look inside our modern Japanese language classrooms.', 1)`;
     await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Friendly Football Match', 'Sports', '/images/gallery/event-1.jpg', 'Students participating in a friendly football match between YMS and KG.', 1)`;
     await sql`INSERT INTO gallery (title, category, img, "desc", published) VALUES ('Annual Cultural Festivities', 'Events', '/images/gallery/event-2.jpg', 'Celebrating traditional Japanese cultural events and festivals.', 1)`;
