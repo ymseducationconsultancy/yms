@@ -224,11 +224,7 @@ export default function Home() {
               <div className="absolute right-0 inset-y-0 w-[10%] bg-gradient-to-l from-[#0097A7]/30 to-transparent pointer-events-none z-10"></div>
             </div>
 
-            {/* Floating Glassmorphism Badge */}
-            <div className="absolute -top-4 -right-4 backdrop-blur-md bg-white/80 border border-white/30 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-2.5 animate-float pointer-events-none z-20">
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="font-[family-name:var(--font-dm-sans)] text-[12px] font-bold text-[#1B2A6B] tracking-[0.05em] uppercase">COE Success 2025</span>
-            </div>
+
           </motion.div>
         </div>
       </section>
